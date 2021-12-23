@@ -1,0 +1,28 @@
+.logobar {
+  background-color: rgb(49, 104, 255);
+}
+
+#locale {
+  position: absolute;
+  padding-right: 9em;
+  top: 1em;
+  color: white;
+}
+
+#login {
+  position: absolute;
+  right: 3em;
+  padding-top: 1em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+#login:hover{
+  color: rgb(255, 217, 0);
+}
+
+.container img {
+  height: 90px;
+  width: 290px;
+}

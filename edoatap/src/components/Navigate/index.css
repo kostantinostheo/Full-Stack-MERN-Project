@@ -1,0 +1,7 @@
+.navigation {
+    background-color: rgb(235, 235, 235);
+}
+
+#top-nav-dropdown:hover{
+    color: rgb(68, 68, 255);
+}
