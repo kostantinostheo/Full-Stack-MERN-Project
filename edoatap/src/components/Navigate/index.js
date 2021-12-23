@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import SearchInput from '../SearchInput';
 import './index.css'
 export default function Navigate(){
   return(
     <Navbar className='navigation'>
       <Container>
-        {/* <Navbar.Brand href="/"> <Image src={Logo} responsive/></Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -15,7 +15,7 @@ export default function Navigate(){
                 <NavDropdown.Item href="/login">Αναγνώρισης και Ισοτιμίας</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/">Οδηγός Αιτήσεων</NavDropdown.Item>
+              <NavDropdown.Item href="/odigos-etiseon">Οδηγός Αιτήσεων</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Ανακοινώσεις" id="top-nav-dropdown">
               <NavDropdown.Item href="/login">Όλες οι Ανακοινώσεις</NavDropdown.Item>
@@ -32,6 +32,7 @@ export default function Navigate(){
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <SearchInput/> {/*Setting the input search component */}
       </Container>
     </Navbar>
   );
