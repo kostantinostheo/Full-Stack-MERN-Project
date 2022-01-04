@@ -13,7 +13,7 @@ import ApplicationInfo from './components/ApplicationsInfo';
 function App() {
   return (
        <div className="App">
-        <Logobar/>
+        <Logobar />
         <Navigate />
         <Routes>
           <Route exact path='/' element={<Home />}/>
