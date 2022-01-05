@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import Login from './components/Login';
-import {Home} from './components/Home';
+import Home from './components/Home';
 import Navigate from './components/Navigate';
 import Logobar from './components/Logobar';
 import ApplicationInfo from './components/ApplicationsInfo';

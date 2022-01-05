@@ -2,7 +2,7 @@ import './index.css'
 import React from "react";
 import Info from '../Info';
 
-export function Home() {
+export default function Home() {
   return (
     <div>
       <div className="title">
@@ -21,6 +21,9 @@ export function Home() {
         Ο ΔΟΑΤΑΠ είναι Νομικό Πρόσωπο Δημοσίου Δικαίου, εποπτευόμενο από τον Υπουργό Παιδείας και
         Θρησκευμάτων, με έδρα την Αθήνα.
       </div>
+      <Info />
+      <Info />
+      <Info />
     </div>
   );
 }
