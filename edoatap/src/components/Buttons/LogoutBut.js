@@ -10,7 +10,7 @@ export default function LogoutBut() {
     
     useEffect(()=>{
         setUsername(decodeToken().firstname)
-    })
+    }, [])
 
     function LogOut(){
         localStorage.removeItem('token')
