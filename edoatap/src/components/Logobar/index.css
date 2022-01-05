@@ -9,19 +9,6 @@
   color: white;
 }
 
-#login {
-  position: absolute;
-  right: 3em;
-  padding-top: 1em;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-#login:hover{
-  color: rgb(255, 217, 0);
-}
-
 .container img {
   height: 90px;
   width: 290px;

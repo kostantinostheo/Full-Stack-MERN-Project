@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 //Get all users from the db
 router.get('/', async(req,res) => {
@@ -52,7 +53,17 @@ router.post('/login', async (req, res) => {
     }
     try {
         if(await bcrypt.compare(req.body.password, user.password))
-            res.send(user)
+        {
+            const token = jwt.sign({
+                firstname: user.firstname,
+                lastname: user.lastname,
+                email: user.email,
+                mobile: user.mobile
+            },
+            'secretcode123'
+            )
+            return res.json({user: user , token: token}) //debug only. never return user
+        }
         else
             res.send('Fail')
     } catch {

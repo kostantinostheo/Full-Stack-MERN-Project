@@ -2,8 +2,14 @@ import React from 'react';
 import { Col, Row, Image, Container, Navbar } from 'react-bootstrap'
 import Logo from '../../images/Logo.png';
 import './index.css';
+import {getToken} from '../../utils/Common'
+import LoginBut from '../Buttons/LoginBut'
+import LogoutBut from '../Buttons/LogoutBut'
 
 export default function Logobar() {
+
+  const token = getToken()
+
   return (
     <Navbar className='logobar'>
       <Container>
@@ -14,7 +20,14 @@ export default function Logobar() {
           <Col id='locale'>English</Col>
         </Row>
         <Row>
-          <Col><a id='login' href="/login">Είσοδος</a></Col>
+          <div>
+            {
+              token && ( <LogoutBut/>) 
+            }
+            {
+              !token && ( <LoginBut/> )
+            }
+          </div>
         </Row>
       </Container>
     </Navbar>

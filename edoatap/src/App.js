@@ -9,6 +9,8 @@ import {Home} from './components/Home';
 import Navigate from './components/Navigate';
 import Logobar from './components/Logobar';
 import ApplicationInfo from './components/ApplicationsInfo';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route exact path='/' element={<Home />}/>
           <Route path='/login' exact element={<Login />}/>
           <Route path='/odigos-etiseon' exact element={<ApplicationInfo />}/>
+          <Route path='/register' exact element={<Register />}/>
+          <Route path='/dashboard' exact element={<Dashboard />}/>
         </Routes>
       </div>
   );
