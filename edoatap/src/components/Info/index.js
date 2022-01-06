@@ -7,41 +7,25 @@ export default function Info() {
       <div className="cards">
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
+            <Card.Title>Αποτελέσματα εξετάσεων Ιατρικής - Δεκέμβριος 2021 - Έκτακτη εξεταστική περίοδος χειρουργική ανατομία</Card.Title>
             <Button variant="primary">Περισσότερα</Button>
           </Card.Body>
         </Card>
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
+            <Card.Title>Σεμινάριο διάχυσης αποτελεσμάτων προγράμματος Erasmus+</Card.Title>
             <Button variant="primary">Περισσότερα</Button>
           </Card.Body>
         </Card>
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
+            <Card.Title>Πορεία Εκτέλεσης Προϋπολογισμού Νοεμβρίου 2021</Card.Title>
             <Button variant="primary">Περισσότερα</Button>
           </Card.Body>
         </Card>
         <Card style={{ width: '18rem' }}>
           <Card.Body>
-            <Card.Title>Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
+            <Card.Title>Λίστα συμμετεχόντων στις εξεταάσεις οδοντιατρικής περιόδου Ιανουαρίου 2020</Card.Title>
             <Button variant="primary">Περισσότερα</Button>
           </Card.Body>
         </Card>
