@@ -1,15 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Col } from 'react-bootstrap'
-import { Dropdown } from 'react-bootstrap'
+import React, { useRef, useState, useEffect  } from 'react';
+import { Dropdown, DropdownButton } from 'react-bootstrap'
 import './index.css'
-import {decodeToken} from '../../utils/Common'
+import {decodeToken, getToken} from '../../utils/Common'
 
 export default function LogoutBut() {
     
     const [username, setUsername] = useState()
+    const [lastname, setLastName] = useState()
     
-    useEffect(()=>{
-        setUsername(decodeToken().firstname)
+    let decodedToken = decodeToken()
+    const reference = useRef(decodedToken)
+
+    const role = decodedToken.status
+
+    async function getUserData(){
+        const res = await fetch(`http://localhost:3000/users/${reference.current.user_id}`)
+        const data = await res.json()
+        setUsername(data.firstname)
+        setLastName(data.lastname)
+    }
+
+    useEffect(()=> {
+        const token = getToken()
+        if(token){
+            getUserData()
+        }
+        else{
+            //If you are not signed in yet, return to login page
+            window.location.href = '/login'
+        }
     }, [])
 
     function LogOut(){
@@ -17,17 +36,17 @@ export default function LogoutBut() {
     }
     
     return (
-        <Col>
-            <Dropdown id="logout">
-                <Dropdown.Toggle>
-                    {username}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                    <Dropdown.Item href="/dashboard">Προφίλ</Dropdown.Item>
-                    <Dropdown.Item onClick={LogOut} href="/">Έξοδος</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-        </Col>
+        <div className='logout-but'>
+            <DropdownButton id='drop' title={username + " " +lastname}>
+                <Dropdown.Item href="/dashboard">Προφίλ</Dropdown.Item>
+                {role === "admin" && (
+                    <Dropdown.Item /*href="/edoatap/admin"*/>Αιτήσεις</Dropdown.Item>
+                )}
+                {role === "user" && (
+                    <Dropdown.Item /*href="/edoatap/user"*/>Οι αιτήσεις μου</Dropdown.Item>
+                )}
+                <Dropdown.Item onClick={LogOut} href="/">Έξοδος</Dropdown.Item>
+            </DropdownButton>
+        </div>
     );
 }

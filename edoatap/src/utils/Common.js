@@ -12,3 +12,8 @@ export const decodeToken = () => {
   return decodedToken
 
 }
+
+export async function getUserData(id){
+  const res = await fetch(`http://localhost:3000/users/${id}`)
+  return await res.json()
+}

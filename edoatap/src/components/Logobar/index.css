@@ -4,11 +4,18 @@
 
 #locale {
   position: absolute;
-  padding-right: 9em;
+  padding-right: 14em;
+  padding-top: 5px;
   top: 1em;
   color: white;
 }
 
+#log{
+  position: relative;
+  padding-right: 5em;
+  top: 1em;
+  color: white;
+}
 .container img {
   height: 90px;
   width: 290px;

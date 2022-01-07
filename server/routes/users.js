@@ -3,8 +3,38 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-let count = 0
 
+const {MongoClient}  = require('mongodb')
+
+require('dotenv').config()
+
+
+const uri = process.env.CLIENT_DB_URL
+
+/*
+    Creating a mongodb client. We can have access to the mongodb and its collection
+    Here I create a simple async command that brings the number of users in the db. 
+    I use this number to create the next user id. 
+*/
+async function dbGetLastUserId() {
+    const client = new MongoClient(uri, { useUnifiedTopology: true })
+    try {
+        await client.connect()
+        const db = client.db("edoatap")
+        const users = db.collection("users")
+        const number = await users.estimatedDocumentCount()
+        return number
+    }catch (error){
+        console.error(error)
+    }
+    finally{
+        client.close()
+    }
+  }
+
+
+
+  
 //Get all users from the db
 router.get('/', async(req,res) => {
     try{
@@ -25,19 +55,20 @@ router.get('/:user_id', getUserById, (req,res) => {
 //Create one user
 router.post('/register', async (req,res) => {
 
-    
     const salt = await bcrypt.genSalt()
     const hashedPass = await bcrypt.hash(req.body.password, salt)
+    let lastId = await dbGetLastUserId()
 
     const user = new User({
-        user_id: count++,
-        status: req.body.email.includes("@admin.") ? "admin" : "user",
+        user_id: ++lastId,
+        status: req.body.email.includes("admin@edoatap.") ? "admin" : "user",
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
         password: hashedPass,
         mobile: req.body.mobile
     })
+
     try{
         const newUser = await user.save()
         res.status(201).json(newUser)

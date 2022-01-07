@@ -20,14 +20,16 @@ export default function Logobar() {
           <Col id='locale'>English</Col>
         </Row>
         <Row>
-          <div>
-            {
-              token && ( <LogoutBut/>) 
-            }
-            {
-              !token && ( <LoginBut/> )
-            }
-          </div>
+          <Col >
+            <div>
+              {
+                token && ( <LogoutBut/>) 
+              }
+              {
+                !token && ( <LoginBut/> )
+              }
+            </div>
+          </Col>
         </Row>
       </Container>
     </Navbar>
