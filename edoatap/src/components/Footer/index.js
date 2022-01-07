@@ -1,5 +1,4 @@
 import React from "react";
-import { Nav } from 'react-bootstrap';
 import "./index.css";
 
 export default function Footer() {

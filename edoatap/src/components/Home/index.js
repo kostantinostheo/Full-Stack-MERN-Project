@@ -1,20 +1,21 @@
 import './index.css'
 import React from "react";
 import Info from '../Info';
-import { ListGroup, Table } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
+import Pages from '../Pages';
 
 export default function Home() {
   return (
     <div>
       <div className="title">
-        <h1>Αξιοσημείωτα</h1>
+        <h3>Αξιοσημείωτα</h3>
       </div>
       <Info />
       <div className="title">
-        <h1>Ταυτότητα Οργανισμού</h1>
+        <h3>Ταυτότητα Οργανισμού</h3>
       </div>
       <div className="text">
-        <p>Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης(Δ.Ο.Α.Τ.Α.Π.)
+        <p >Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης(Δ.Ο.Α.Τ.Α.Π.)
         είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που
         που απονέμονται από εκπαιδευτικά ιδρύματα  ανώτατης εκπαίδευσης της αλλοδαπής και για την
         Έγκυρη πληροφόρησης για τα ανώτατα ιδρύματα και τους τίτλους σπουδών στην Ελλάδα και το
@@ -23,7 +24,7 @@ export default function Home() {
         Θρησκευμάτων, με έδρα την Αθήνα.
       </div>
       <div className="title">
-        <h1>Ανακοινώσεις</h1>
+        <h3>Ανακοινώσεις</h3>
       </div>
       <div className="text">
         <ListGroup>
@@ -62,6 +63,7 @@ export default function Home() {
           </ListGroup>
         </ListGroup>
       </div>
+      <Pages/>
     </div>
   );
 }
