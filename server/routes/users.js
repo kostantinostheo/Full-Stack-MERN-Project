@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+let count = 0
 
 //Get all users from the db
 router.get('/', async(req,res) => {
@@ -24,11 +25,13 @@ router.get('/:user_id', getUserById, (req,res) => {
 //Create one user
 router.post('/register', async (req,res) => {
 
+    
     const salt = await bcrypt.genSalt()
     const hashedPass = await bcrypt.hash(req.body.password, salt)
 
     const user = new User({
-        user_id: req.body.user_id,
+        user_id: count++,
+        status: req.body.email.includes("@admin.") ? "admin" : "user",
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
@@ -55,14 +58,12 @@ router.post('/login', async (req, res) => {
         if(await bcrypt.compare(req.body.password, user.password))
         {
             const token = jwt.sign({
-                firstname: user.firstname,
-                lastname: user.lastname,
-                email: user.email,
-                mobile: user.mobile
+                user_id: user.user_id,
+                status: user.status,
             },
             'secretcode123'
             )
-            return res.json({user: user , token: token}) //debug only. never return user
+            return res.json({token: token})
         }
         else
             res.send('Fail')
