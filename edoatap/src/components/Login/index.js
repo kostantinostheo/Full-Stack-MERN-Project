@@ -34,7 +34,10 @@ export default function Login() {
         console.log(data)
     }
   return (
-    <Container id='login-contain'>
+    
+    <div >
+    <br/><br/><br/>
+    <Container className="login-contain" >
       <Form 
       id='login-panel'  
       onSubmit={onLogin}>
@@ -69,5 +72,6 @@ export default function Login() {
         </Button>
       </Form>
     </Container>
+    </div>
   );
 }

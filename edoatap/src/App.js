@@ -11,6 +11,7 @@ import Logobar from './components/Logobar';
 import ApplicationInfo from './components/ApplicationsInfo';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
+import UpdateDashboard from './components/UpdateDashboard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/odigos-etiseon' exact element={<ApplicationInfo />}/>
           <Route path='/register' exact element={<Register />}/>
           <Route path='/dashboard' exact element={<Dashboard />}/>
+          <Route path='/update_dashboard' exact element={<UpdateDashboard />}/>
         </Routes>
       </div>
   );

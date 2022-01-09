@@ -1,5 +1,6 @@
 body {
-  position:fixed;
+  position:absolute;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
   top:0;
   bottom:0;
   left:0;

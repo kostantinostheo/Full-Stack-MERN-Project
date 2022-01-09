@@ -12,6 +12,14 @@ export default function Dashboard()
     const [firstname, setFirstName] = useState()
     const [lastname, setLastName] = useState()
     const [email, setEmail] = useState()
+    const [phone, setPhone] = useState('')
+    const [mobile, setMobile] = useState('')
+    const [date, setDate] = useState();
+    const [address, setAddress] = useState();
+    const [city, setCity] = useState();
+    const [city_id, setCityId] = useState();
+    const [_id_number, setIdNum] = useState();
+    const [_id_city, setIdCity] = useState();
 
     const history = useNavigate()
     
@@ -20,19 +28,31 @@ export default function Dashboard()
     async function getUserData(){
         const res = await fetch(`http://localhost:3000/users/${decodedToken.user_id}`)
         const data = await res.json()
-        console.log(decodedToken.user_id)
-        setProfile(data)
+        await setProfile(data)
     }
 
-    function setProfile(data){
+    async function setProfile(data){
         setFirstName(data.firstname)
         setLastName(data.lastname)
         setEmail(data.email)
+        setPhone(data.phone)
+        setMobile(data.mobile)
+        let temp_date =  await convertFromStringToDate(data.date)
+        setDate(temp_date)
+        setAddress(data.address)
+        setCity(data.city)
+        setCityId(data.city_id)
+        setIdNum(data._id_number)
+        setIdCity(data._id_city)
     }
-
+    
+    async function convertFromStringToDate(responseDate) {
+        let dateComponents = responseDate.split('T');
+        return new Date(dateComponents[0]).toLocaleDateString("el-GR")
+    }
+    
     useEffect(()=> {
         const token = localStorage.getItem('token')
-        console.log("malaka")
         if(token){
             const parts = token.split('.');
             decodedToken = base64.decode(parts[1]);
@@ -48,7 +68,6 @@ export default function Dashboard()
             }
         }
         else{
-            console.log("ups")
             //If you are not signed in yet, return to login page
             window.location.href = '/login'
         }
@@ -62,7 +81,7 @@ export default function Dashboard()
             <div>
             <Row id="data-raw">
                 <Col><h3 className="name-label">{firstname} {lastname}</h3></Col>
-                <Col><Button href="/dashboard" className="edit-profile">Επεξεργασία Προφίλ</Button></Col>
+                <Col><Button href="/update_dashboard" className="edit-profile">Επεξεργασία Προφίλ</Button></Col>
             </Row>
             </div>
         </Navbar>
@@ -76,17 +95,42 @@ export default function Dashboard()
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Γέννησης</Form.Label>
-                <Form.Control placeholder="12/04/12 hc" disabled />
+                <Form.Control placeholder={date} disabled />
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Τηλέφωνο</Form.Label>
-                <Form.Control type="email" placeholder="2104200666" disabled/>
+                <Form.Control type="text" placeholder={phone} disabled/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label style={{"float": "left"}}>Κινητό</Form.Label>
-                <Form.Control type="password" placeholder="6987621345" disabled/>
+                <Form.Control type="text" placeholder={mobile} disabled/>
+                </Form.Group>
+            </Row>
+            <Row className="mb-1">
+                <Form.Group as={Col} className="mb-3">
+                    <Form.Label style={{"float": "left"}}>Διεύθυνση</Form.Label>
+                    <Form.Control placeholder={address} disabled />
+                </Form.Group>
+                <Form.Group as={Col} className="mb-3">
+                    <Form.Label style={{"float": "left"}}>Πόλη</Form.Label>
+                    <Form.Control placeholder={city} disabled />
+                </Form.Group>
+                <Form.Group as={Col} className="mb-3">
+                    <Form.Label style={{"float": "left"}}>Τ.Κ.</Form.Label>
+                    <Form.Control placeholder={city_id} disabled />
+                </Form.Group>
+            </Row>
+            <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label style={{"float": "left"}}>Αριθμός Δ.Τ.</Form.Label>
+                <Form.Control type="text" placeholder={_id_number} disabled/>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label style={{"float": "left"}}>Έκδουσα Αρχή</Form.Label>
+                <Form.Control type="text" placeholder={_id_city} disabled/>
                 </Form.Group>
             </Row>
         </div>

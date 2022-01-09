@@ -44,20 +44,24 @@
     margin-right: auto;
 }
 
-table, th, td {
-    border: 1px solid black;
-    margin-top: 1em;
-    margin-left: auto;
-    margin-right: auto;
+#update-submit-but{
+    text-align: center;
+    float: right;
+    width: 10em;
+    color: aliceblue;
+    background-color: rgb(49, 104, 255);
 }
-th, td {
-background-color: #f8f8f8;
+#update-cancel-but{
 
-}
-td{
-    height: 40px;
-}
-th{
-    height: 50px;
+    padding-top: 6px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 5px;
+    float: right;
+    width: 10em;
+    height: 38px;
+    color: rgb(39, 39, 39);
+    background-color: rgb(224, 224, 224);
 }
 

@@ -66,7 +66,15 @@ router.post('/register', async (req,res) => {
         lastname: req.body.lastname,
         email: req.body.email,
         password: hashedPass,
-        mobile: req.body.mobile
+        date: req.body.date,
+        sex: req.body.sex,
+        address: req.body.address, 
+        city: req.body.city, 
+        city_id: req.body.city_id,
+        phone: req.body.phone,
+        mobile: req.body.mobile,
+        _id_number: req.body._id_number, 
+        _id_city: req.body._id_city
     })
 
     try{
@@ -108,6 +116,24 @@ router.post('/login', async (req, res) => {
 router.patch('/:user_id', getUserById, async (req,res) => {
     if (req.body.firstname != null){
         res.user.firstname = req.body.firstname
+    }if(req.body.lastname != null){
+        res.user.lastname = req.body.lastname
+    }if(req.body.email != null){
+        res.user.email = req.body.email
+    }if(req.body.address != null){
+        res.user.address = req.body.address
+    }if(req.body.city != null){
+        res.user.city = req.body.city
+    }if(req.body.city_id != null){
+        res.user.city_id = req.body.city_id
+    }if(req.body.phone != null){
+        res.user.phone = req.body.phone
+    }if(req.body.mobile != null){
+        res.user.mobile = req.body.mobile
+    }if(req.body._id_number != null){
+        res.user._id_number = req.body._id_number
+    }if(req.body._id_city != null){
+        res.user._id_city = req.body._id_city
     }
 
     try {

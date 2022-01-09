@@ -25,10 +25,42 @@ const userSchemma = new mongoose.Schema({
         type: String,
         required: true
     },
+    date:{
+        type: Date,
+        required: false
+    },
+    sex:{
+        type: String,
+        required: false
+    },
+    address:{
+        type: String,
+        required: false
+    },
+    city:{
+        type: String,
+        required: false
+    },
+    city_id:{
+        type: Number,
+        required: false
+    },
+    phone:{
+        type: Number,
+        required: false
+    },
     mobile:{
         type: Number,
         required: false
-    }
+    },
+    _id_number:{
+        type: String,
+        required: false
+    },
+    _id_city:{
+        type: String,
+        required: false
+    },
 
 })
 

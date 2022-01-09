@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/5
 ###
 GET http://localhost:3000/users
 ###
@@ -25,10 +25,13 @@ Content-Type: application/json
 
 ###
 
-PATCH  http://localhost:3000/users/1
+PATCH  http://localhost:3000/users/5
 Content-Type: application/json
 
 {
-    "firstname": "Manos"
+    "address": "Περραιβού 24",
+    "city": "Χαϊδάρι",
+    "city_id": 12461,
+    "_id_city": "Αττική"
 }
 ###
