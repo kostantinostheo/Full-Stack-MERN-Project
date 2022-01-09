@@ -5,9 +5,10 @@ import {
 } from "react-router-dom";
 
 import Login from './components/Login';
-import {Home} from './components/Home';
+import Home from './components/Home';
 import Navigate from './components/Navigate';
 import Logobar from './components/Logobar';
+import Footer from './components/Footer';
 import ApplicationInfo from './components/ApplicationsInfo';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
@@ -16,7 +17,7 @@ import UpdateDashboard from './components/UpdateDashboard';
 function App() {
   return (
        <div className="App">
-        <Logobar/>
+        <Logobar />
         <Navigate />
         <Routes>
           <Route exact path='/' element={<Home />}/>
@@ -26,6 +27,8 @@ function App() {
           <Route path='/dashboard' exact element={<Dashboard />}/>
           <Route path='/update_dashboard' exact element={<UpdateDashboard />}/>
         </Routes>
+        <br/><br/>
+        <Footer />
       </div>
   );
 }

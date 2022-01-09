@@ -11,12 +11,13 @@ export default function Logobar() {
   const token = getToken()
 
   return (
+
     <Navbar className='logobar'>
       <Container>
         <Navbar.Brand href="/"> <Image src={Logo} responsive/></Navbar.Brand>
       </Container>
       <Container>
-        <Row >
+        <Row>
           <Col id='locale'>English</Col>
         </Row>
         <Row>
@@ -35,4 +36,3 @@ export default function Logobar() {
     </Navbar>
   );
 }
-  
