@@ -1,0 +1,67 @@
+.dashbar {
+    display: block !important; 
+    height: 6em;
+    background-color: rgb(122, 145, 189);
+}
+#applications-label{
+    color: rgb(61, 110, 201);
+    text-align: left;
+    padding-top: 1.5em;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#user-details-label{
+    color: rgb(61, 110, 201);
+    text-align: left;
+    padding-top: 1.5em;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#data-raw{
+    padding-top: 1.5em;
+}
+.name-label{
+    position: relative;
+    padding-left : 2em;
+    color: aliceblue;
+}
+
+.edit-profile{
+    position: relative;
+    right: 20em;
+    float: right;
+    color: rgb(255, 255, 255) !important;
+    font-weight: bold !important;
+    background-color: rgb(49, 104, 255);
+}
+
+.user-data-form{
+    width: 65%;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#update-submit-but{
+    text-align: center;
+    float: right;
+    width: 10em;
+    color: aliceblue;
+    background-color: rgb(49, 104, 255);
+}
+#update-cancel-but{
+
+    padding-top: 6px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 5px;
+    float: right;
+    width: 10em;
+    height: 38px;
+    color: rgb(39, 39, 39);
+    background-color: rgb(224, 224, 224);
+}
+

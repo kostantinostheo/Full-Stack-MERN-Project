@@ -10,6 +10,9 @@ import Navigate from './components/Navigate';
 import Logobar from './components/Logobar';
 import Footer from './components/Footer';
 import ApplicationInfo from './components/ApplicationsInfo';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import UpdateDashboard from './components/UpdateDashboard';
 
 function App() {
   return (
@@ -20,7 +23,11 @@ function App() {
           <Route exact path='/' element={<Home />}/>
           <Route path='/login' exact element={<Login />}/>
           <Route path='/odigos-etiseon' exact element={<ApplicationInfo />}/>
-        </Routes><br/><br/>
+          <Route path='/register' exact element={<Register />}/>
+          <Route path='/dashboard' exact element={<Dashboard />}/>
+          <Route path='/update_dashboard' exact element={<UpdateDashboard />}/>
+        </Routes>
+        <br/><br/>
         <Footer />
       </div>
   );

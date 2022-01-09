@@ -8,16 +8,14 @@
 
 }
 
-#login-contain{
-    border: 1px rgb(99, 99, 99);
-    padding: 10px;
-    box-shadow: 5px 10px rgba(0, 0, 0, 0.493);
-    position: relative; 
-    top: 100px;
-    margin: auto;
-    width: 400px;
-    height: 400px;
+.login-contain{
+    color: rgb(39, 39, 39);
+    background-color:rgb(218, 221, 226);
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px !important;
+    height: 24em;
+    border-radius: 10px;
     padding-top: 4em;
-    background-color: rgb(211, 211, 211);
     text-align: left;
 }

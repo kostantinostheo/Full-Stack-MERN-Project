@@ -4,24 +4,18 @@
 
 #locale {
   position: absolute;
-  padding-right: 9em;
+  padding-right: 14em;
+  padding-top: 5px;
   top: 1em;
   color: white;
 }
 
-#login {
-  position: absolute;
-  right: 3em;
-  padding-top: 1em;
-  font-weight: bold;
+#log{
+  position: relative;
+  padding-right: 5em;
+  top: 1em;
   color: white;
-  text-decoration: none;
 }
-
-#login:hover{
-  color: rgb(255, 217, 0);
-}
-
 .container img {
   height: 90px;
   width: 290px;
