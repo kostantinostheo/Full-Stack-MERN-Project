@@ -58,7 +58,19 @@ router.post('/api/submit', async (req,res) => {
     const application = new Application({
         application_id: req.body.application_id,
         user_id: req.body.user_id,
-        temp: req.body.temp
+        status: req.body.status,
+        application_type: req.body.application_type,
+        application_date: req.body.application_date,
+        type_of_studies: req.body.type_of_studies,
+        country_of_studies: req.body.country_of_studies,
+        university: req.body.university,
+        university_type: req.body.university_type,
+        title_of_studies: req.body.title_of_studies,
+        credits: req.body.credits,
+        sign_in_date: req.body.sign_in_date,
+        date_of_graduation: req.body.date_of_graduation,
+        years_of_studies: req.body.years_of_studies,
+        university_department_of_choice: req.body.university_department_of_choice
     })
 
     try{

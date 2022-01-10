@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import { Form, Row , Col, Navbar, Button, FormLabel} from 'react-bootstrap'
+import { Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
 import base64 from 'base-64';
 
 import './index.css'
@@ -21,14 +21,35 @@ export default function Dashboard()
     const [_id_number, setIdNum] = useState();
     const [_id_city, setIdCity] = useState();
 
+    //Applications
+    const [index, setIndex] = useState([]);
+    const [applicationStatus, setApplicationStatus] = useState([]);
+    const [applicationType, setApplicationType] = useState([]);
+    const [applicationDate, setApplicationDate] = useState([]);
+
     const history = useNavigate()
     
     let decodedToken
+    let [i, setI] = useState();
+    const [applicationNum, setApplicationNum] = useState();
 
     async function getUserData(){
         const res = await fetch(`http://localhost:3000/users/${decodedToken.user_id}`)
         const data = await res.json()
         await setProfile(data)
+    }
+
+    async function getApplications(){
+        const res = await fetch(`http://localhost:3000/applications/api/${decodedToken.user_id}`)
+        const data = await res.json()
+        setApplicationNum(data.length)
+        for (let i = 0; i < data.length; i++) {
+            setIndex( oldVal => [...oldVal, data[i].application_id])
+            setApplicationStatus( oldVal => [...oldVal, data[i].status] )
+            setApplicationType( oldVal => [...oldVal, data[i].application_type] )
+            const dateConverted = await convertFromStringToDate(data[i].application_date)
+            setApplicationDate( oldVal => [...oldVal, dateConverted ])
+        }
     }
 
     async function setProfile(data){
@@ -50,8 +71,18 @@ export default function Dashboard()
         let dateComponents = responseDate.split('T');
         return new Date(dateComponents[0]).toLocaleDateString("el-GR")
     }
-    
+    const NextPage = () => {
+        const temp = i+4
+        setI(temp)
+    }
+    const PrevPage = () => {
+        const temp = i-4
+        setI(temp)
+      }
+
+
     useEffect(()=> {
+        setI(0)
         const token = localStorage.getItem('token')
         if(token){
             const parts = token.split('.');
@@ -65,6 +96,7 @@ export default function Dashboard()
                 setStatus(decodedToken.status)
                 setId(decodedToken.user_id)
                 getUserData()
+                getApplications()
             }
         }
         else{
@@ -72,8 +104,6 @@ export default function Dashboard()
             window.location.href = '/login'
         }
     }, [])
-
-    const x = true
 
     return(
     <div>
@@ -137,26 +167,79 @@ export default function Dashboard()
         <Row id="applications-label">
             <h4><b>Αιτήσεις</b></h4>
         </Row>
-        <table style={{"width":"65%"}}>
-            <tr>
-                <th style={{"width": "15%"}}>Ημερομηνία</th>
-                <th style={{"width": "25%"}}>Τύπος</th>
-                <th style={{"width": "25%"}}>Επίπεδο Σπουδών</th>
-                <th style={{"width": "30%"}}>Κατάσταση</th>
-            </tr>
-            <tr>
-                <td>12/05/2011</td>
-                <td>Αναγνώριση Τίτλου</td>
-                <td>Βασικό Πτυχίο</td>
-                <td>Αποθηκευμένη</td>
-            </tr>
-            <tr>
-                <td>14/01/2014</td>
-                <td>Αναγνώριση Τίτλου</td>
-                <td>Βασικό Πτυχίο</td>
-                <td>Υπό επεξεργασία</td>
-            </tr>
-        </table>
+        <div className="user-applicatio-table">
+        <Table  striped bordered hover size="sm">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Ημερομηνία</th>
+                <th>Τύπος Αίτησης</th>
+                <th>Κατάσταση</th>
+                <th>Ενέργεια</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{index[i]}</td>
+                <td>{applicationDate[i]}</td>
+                <td>{applicationType[i]}</td>
+                <td>{applicationStatus[i]}</td>
+                <td className="buttons-holder">
+                        { 
+                        applicationStatus[i] === "Αποθηκευμένη" &&
+                        (<Button className="but-table-edit">Edit</Button>) 
+                        }
+                        <Button className="but-table-delete" >Delete</Button><Button className="but-table-preview">Preview</Button>
+                </td>
+                </tr>
+                <tr>
+                <td>{index[i+1]}</td>
+                <td>{applicationDate[i+1]}</td>
+                <td>{applicationType[i+1]}</td>
+                <td>{applicationStatus[i+1]}</td>
+                <td className="buttons-holder">{ 
+                        applicationStatus[i+1] === "Αποθηκευμένη" &&
+                        (<Button className="but-table-edit">Edit</Button>) 
+                        }
+                        <Button className="but-table-delete" >Delete</Button><Button className="but-table-preview">Preview</Button>
+                </td>
+                </tr>
+                <tr>
+                <td>{index[i+2]}</td>
+                <td>{applicationDate[i+2]}</td>
+                <td>{applicationType[i+2]}</td>
+                <td>{applicationStatus[i+2]}</td>
+                <td className="buttons-holder">{ 
+                        applicationStatus[i+2] === "Αποθηκευμένη" &&
+                        (<Button className="but-table-edit">Edit</Button>) 
+                        }
+                        <Button className="but-table-delete" >Delete</Button><Button className="but-table-preview">Preview</Button>
+                </td>
+                </tr>
+                <tr>
+                <td>{index[i+3]}</td>
+                <td>{applicationDate[i+3]}</td>
+                <td>{applicationType[i+3]}</td>
+                <td>{applicationStatus[i+3]}</td>
+                <td className="buttons-holder">{ 
+                        applicationStatus[i+3] === "Αποθηκευμένη" &&
+                        (<Button className="but-table-edit">Edit</Button>) 
+                        }
+                        <Button className="but-table-delete" >Delete</Button><Button className="but-table-preview">Preview</Button>
+                </td>
+                </tr>
+            </tbody>
+        </Table>
+        { applicationNum > 4 && 
+        (
+            <Button className="change-page" style={{"float" : "right"}} onClick={NextPage} >Επόμενη</Button>
+        )
+        }
+        { applicationNum > 4 && i >=4 &&
+            (<Button className="change-page" style={{"float" : "right"}} onClick={PrevPage}>Προηγούμενη</Button>)
+        }
+
+        </div>
     </div>
     );
 }

@@ -44,20 +44,42 @@
     margin-right: auto;
 }
 
-table, th, td {
-    border: 1px solid black;
-    margin-top: 1em;
+.user-applicatio-table{
+    width: 65%;
+    padding-top: 1.5em;
     margin-left: auto;
     margin-right: auto;
 }
-th, td {
-background-color: #f8f8f8;
 
+.but-table-edit{
+    margin-left: 5px;
+    margin-right: 5px;
+    left: 10px;
+    right: 10px;
+    background-color: rgb(199, 180, 118) !important;
+    border: none !important;
 }
-td{
-    height: 40px;
+.but-table-delete{
+    margin-left: 5px;
+    margin-right: 5px;
+    left: 10px;
+    right: 10px;
+    background-color: rgb(190, 109, 109) !important;
+    border: none !important;
 }
-th{
-    height: 50px;
+.but-table-preview{
+    margin-left: 5px;
+    margin-right: 5px;
+    left: 10px;
+    right: 10px;
+    background-color: rgb(109, 147, 190) !important;
+    border: none !important;
 }
 
+.buttons-holder{
+    width: 30%;
+}
+.change-page{
+    margin-left: 5px;
+    margin-right: 5px;
+}
