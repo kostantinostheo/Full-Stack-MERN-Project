@@ -8,13 +8,13 @@ export default function Home() {
   return (
     <div>
       <div className="title">
-        <h3>Αξιοσημείωτα</h3>
+        <h4>Αξιοσημείωτα</h4>
       </div>
       <Info />
       <div className="title">
-        <h3>Ταυτότητα Οργανισμού</h3>
+        <h4>Ταυτότητα Οργανισμού</h4>
       </div>
-      <div className="text">
+      <div id='site-info' className="text">
         <p >Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης(Δ.Ο.Α.Τ.Α.Π.)
         είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που
         που απονέμονται από εκπαιδευτικά ιδρύματα  ανώτατης εκπαίδευσης της αλλοδαπής και για την
@@ -24,9 +24,9 @@ export default function Home() {
         Θρησκευμάτων, με έδρα την Αθήνα.
       </div>
       <div className="title">
-        <h3>Ανακοινώσεις</h3>
+        <h4>Ανακοινώσεις</h4>
       </div>
-      <div className="text">
+      <div className='news'>
         <ListGroup>
           <ListGroup horizontal>
             <ListGroup.Item>26/06/2020</ListGroup.Item>

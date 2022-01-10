@@ -1,0 +1,42 @@
+.info-box{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 350px;
+    background-color: rgb(247, 247, 247);
+}
+
+#first-header{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align: left;
+    color: rgb(49, 104, 255);
+}
+
+.info{
+    padding-top: 1em;
+    padding-left: 1em;
+}
+
+#to-do{
+    line-height: 3em;
+    text-align: left;
+}
+
+.onliine-date{
+    height: 4em;
+}
+
+.form-email{
+    text-align: left;
+    margin-left: 8em;
+    width: 500px;
+}
+
+#send-msg{
+    float: left;
+    width: 30%;
+    color: aliceblue;
+    background-color: rgb(49, 104, 255);
+}
