@@ -1,34 +1,86 @@
 import "./index.css"
 import React from 'react';
-import { Button, Card } from 'react-bootstrap'
+import { Row, Col, Button, Card } from 'react-bootstrap'
 
 export default function Info() {
   return (
-      <div className="cards">
-        <Card style={{ width: '16rem', height: '16rem'}}>
-          <Card.Body>
-            <Card.Title>Αποτελέσματα εξετάσεων Ιατρικής - Δεκέμβριος 2021 - Έκτακτη εξεταστική περίοδος χειρουργική ανατομία</Card.Title>
-            <Button style={{position: "absolute", right: "4rem", left: "4rem", bottom: 10 }}>Περισσότερα</Button>
+    <div className="must-see">
+    <Row>
+      <Col>
+       <Card className="cards">
+         <Card.Body>
+            <Row>
+              <h5 className="title-cards">Αποτελέσματα εξετάσεων Ιατρικής Δεκέμβριος 2021.</h5>
+            </Row>
+            <Row>
+              <Button id='but'> Περισσότερα </Button>
+            </Row>
           </Card.Body>
         </Card>
-        <Card style={{ width: '16rem' }}>
-          <Card.Body>
-            <Card.Title>Σεμινάριο διάχυσης αποτελεσμάτων προγράμματος Erasmus+</Card.Title>
-            <Button style={{position: "absolute", right: "4rem", left: "4rem", bottom: 10 }}>Περισσότερα</Button>
+      </Col>
+      <Col>
+        <Card className="cards">
+         <Card.Body>
+              <Row>
+                <h5 className="title-cards" >Σεμινάριο διάχυσης αποτελεσμάτων προγράμματος Erasmus+</h5>
+              </Row>
+              <Row>
+                <Button id='but'> Περισσότερα </Button>
+              </Row>
           </Card.Body>
         </Card>
-        <Card style={{ width: '16rem' }}>
+      </Col>
+      <Col>
+        <Card className="cards">
           <Card.Body>
-            <Card.Title>Πορεία Εκτέλεσης Προϋπολογισμού Νοεμβρίου 2021</Card.Title>
-            <Button style={{position: "absolute", right: "4rem", left: "4rem", bottom: 10 }}>Περισσότερα</Button>
+                <Row>
+                  <h5 className="title-cards" >Πορεία Εκτέλεσης Προϋπολογισμού Νοεμβρίου 2021</h5>
+                </Row>
+                <Row>
+                  <Button id='but'> Περισσότερα </Button>
+                </Row>
+            </Card.Body>
+          </Card>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+       <Card className="cards">
+         <Card.Body>
+            <Row>
+              <h5 className="title-cards">Αποτελέσματα εξετάσεων Ιατρικής Δεκέμβριος 2021.</h5>
+            </Row>
+            <Row>
+              <Button id='but'> Περισσότερα </Button>
+            </Row>
           </Card.Body>
         </Card>
-        <Card style={{ width: '16rem' }}>
-          <Card.Body>
-            <Card.Title>Λίστα συμμετεχόντων στις εξεταάσεις οδοντιατρικής περιόδου Ιανουαρίου 2020</Card.Title>
-            <Button style={{position: "absolute", right: "4rem", left: "4rem", bottom: 10 }}>Περισσότερα</Button>
+      </Col>
+      <Col>
+        <Card className="cards">
+         <Card.Body>
+              <Row>
+                <h5 className="title-cards" >Σεμινάριο διάχυσης αποτελεσμάτων προγράμματος Erasmus+</h5>
+              </Row>
+              <Row>
+                <Button id='but'> Περισσότερα </Button>
+              </Row>
           </Card.Body>
         </Card>
-     </div>
+      </Col>
+      <Col>
+        <Card className="cards">
+          <Card.Body>
+                <Row>
+                  <h5 className="title-cards" >Πορεία Εκτέλεσης Προϋπολογισμού Νοεμβρίου 2021</h5>
+                </Row>
+                <Row>
+                  <Button id='but'> Περισσότερα </Button>
+                </Row>
+            </Card.Body>
+          </Card>
+      </Col>
+    </Row>
+    </div>
  );
 }

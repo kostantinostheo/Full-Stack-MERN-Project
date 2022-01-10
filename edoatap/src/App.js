@@ -13,6 +13,7 @@ import ApplicationInfo from './components/ApplicationsInfo';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import UpdateDashboard from './components/UpdateDashboard';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -23,9 +24,10 @@ function App() {
           <Route exact path='/' element={<Home />}/>
           <Route path='/login' exact element={<Login />}/>
           <Route path='/odigos-etiseon' exact element={<ApplicationInfo />}/>
+          <Route path='/update_dashboard' exact element={<UpdateDashboard />}/>
           <Route path='/register' exact element={<Register />}/>
           <Route path='/dashboard' exact element={<Dashboard />}/>
-          <Route path='/update_dashboard' exact element={<UpdateDashboard />}/>
+          <Route path='/epikoinonia' exact element={<Contact/>}/>
         </Routes>
         <br/><br/>
         <Footer />
