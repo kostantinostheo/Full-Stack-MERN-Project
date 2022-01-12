@@ -49,6 +49,29 @@ async function getApplicationByUserId(req, res, next){
 
 
 
+/* Get data for a specific application */
+router.get('/api/appid/:application_id', getApplicationByAppId, (req,res) => {
+    res.send(res.application)
+})
+
+
+async function getApplicationByAppId(req, res, next){
+    const application = await Application.findOne( { application_id: req.params.application_id} )
+    try {
+        if(application == null){
+            return res.status(404).json({ message: 'Cannot find applications for user' })
+        }
+    } catch (error) {
+        return res.status(500).json({ message: err.message })
+    }
+
+    res.application = application
+    next()
+}
+
+
+///////////////////////////////////////////////////////////////
+
 
 /* Submit a new application to database */
 router.post('/api/submit', async (req,res) => {
@@ -58,7 +81,19 @@ router.post('/api/submit', async (req,res) => {
     const application = new Application({
         application_id: req.body.application_id,
         user_id: req.body.user_id,
-        temp: req.body.temp
+        status: req.body.status,
+        application_type: req.body.application_type,
+        application_date: req.body.application_date,
+        type_of_studies: req.body.type_of_studies,
+        country_of_studies: req.body.country_of_studies,
+        university: req.body.university,
+        university_type: req.body.university_type,
+        title_of_studies: req.body.title_of_studies,
+        credits: req.body.credits,
+        sign_in_date: req.body.sign_in_date,
+        date_of_graduation: req.body.date_of_graduation,
+        years_of_studies: req.body.years_of_studies,
+        university_department_of_choice: req.body.university_department_of_choice
     })
 
     try{

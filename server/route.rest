@@ -2,14 +2,28 @@ POST  http://localhost:3000/applications/api/submit
 Content-Type: application/json
 
 {
-    "application_id": 126,
-    "user_id": 122,
-    "temp": "skata"
+        "application_id": 1099,
+        "user_id": 1,
+        "status": "Οριστηκοποιημένη",
+        "application_type": "Αναγνώρισης",
+        "application_date": "{{$datetime 'YYYY-MM-DD'}}",
+        "type_of_studies": "Εξ αποστάσεως",
+        "country_of_studies": "Ολλανδία",
+        "university": "Μπραχτουν",
+        "university_type": "Πανεπιστήμιο",
+        "title_of_studies": "Επιστήμη Υπολογιστών",
+        "credits": 170,
+        "sign_in_date": "{{$datetime 'YYYY-MM-DD'}}",
+        "date_of_graduation": "{{$datetime 'YYYY-MM-DD'}}",
+        "years_of_studies": 4,
+        "university_department_of_choice": "Κάποιο"
 }
 ###
 GET http://localhost:3000/applications/api
 ###
 GET http://localhost:3000/applications/api/121
+###
+GET http://localhost:3000/applications/api/appid/1019
 ###
 PATCH  http://localhost:3000/applications/api/update/123
 Content-Type: application/json
