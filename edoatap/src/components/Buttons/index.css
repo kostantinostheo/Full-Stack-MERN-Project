@@ -1,0 +1,35 @@
+#login {
+    position: absolute;
+    right: 5em;
+    padding-top: 1em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  #login:hover{
+    color: rgb(255, 217, 0);
+  }
+
+  #logout {
+    position: absolute;
+    right: 3em;
+    padding-top: 1em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+  }
+  
+  #logout:hover{
+    color: rgb(255, 217, 0);
+  }
+
+  .logout-but{
+    padding-right : 3em;
+    padding-top : 3em;
+  }
+
+  #drop{
+    background-color: rgb(49, 104, 255);
+    font-weight: bold;
+  }

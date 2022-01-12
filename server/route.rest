@@ -1,3 +1,29 @@
+POST  http://localhost:3000/applications/api/submit
+Content-Type: application/json
+
+{
+    "application_id": 126,
+    "user_id": 122,
+    "temp": "skata"
+}
+###
+GET http://localhost:3000/applications/api
+###
+GET http://localhost:3000/applications/api/121
+###
+PATCH  http://localhost:3000/applications/api/update/123
+Content-Type: application/json
+
+{
+    "temp": "makaronia me kima"
+}
+
+
+
+
+
+
+###
 POST  http://localhost:3000/users/register
 Content-Type: application/json
 
@@ -9,9 +35,8 @@ Content-Type: application/json
     "password":"1234",
     "mobile": 6948604407
 }
-
 ###
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/5
 ###
 GET http://localhost:3000/users
 ###
@@ -25,10 +50,13 @@ Content-Type: application/json
 
 ###
 
-PATCH  http://localhost:3000/users/1
+PATCH  http://localhost:3000/users/5
 Content-Type: application/json
 
 {
-    "firstname": "Manos"
+    "address": "Περραιβού 24",
+    "city": "Χαϊδάρι",
+    "city_id": 12461,
+    "_id_city": "Αττική"
 }
 ###

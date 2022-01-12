@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar, NavDropdown, NavItem } from 'react-bootstrap'
 import SearchInput from '../SearchInput';
 import './index.css'
 export default function Navigate(){
@@ -30,6 +30,7 @@ export default function Navigate(){
               <NavDropdown.Item href="/login">Συχνές Ερωτήσεις</NavDropdown.Item>
               <NavDropdown.Item href="/login">Αιτήσεις</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="/epikoinonia">Επικοινωνία</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <SearchInput/> {/*Setting the input search component */}
