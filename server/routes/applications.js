@@ -49,6 +49,29 @@ async function getApplicationByUserId(req, res, next){
 
 
 
+/* Get data for a specific application */
+router.get('/api/appid/:application_id', getApplicationByAppId, (req,res) => {
+    res.send(res.application)
+})
+
+
+async function getApplicationByAppId(req, res, next){
+    const application = await Application.findOne( { application_id: req.params.application_id} )
+    try {
+        if(application == null){
+            return res.status(404).json({ message: 'Cannot find applications for user' })
+        }
+    } catch (error) {
+        return res.status(500).json({ message: err.message })
+    }
+
+    res.application = application
+    next()
+}
+
+
+///////////////////////////////////////////////////////////////
+
 
 /* Submit a new application to database */
 router.post('/api/submit', async (req,res) => {

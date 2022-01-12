@@ -43,6 +43,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+.application-data-form{
+    width: 80%;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .user-applicatio-table{
     width: 65%;
@@ -58,6 +64,7 @@
     right: 10px;
     background-color: rgb(199, 180, 118) !important;
     border: none !important;
+    float: left;
 }
 .but-table-delete{
     margin-left: 5px;
@@ -66,6 +73,7 @@
     right: 10px;
     background-color: rgb(190, 109, 109) !important;
     border: none !important;
+    float: right;
 }
 .but-table-preview{
     margin-left: 5px;
@@ -74,6 +82,7 @@
     right: 10px;
     background-color: rgb(109, 147, 190) !important;
     border: none !important;
+    float: right;
 }
 
 .buttons-holder{
@@ -82,4 +91,10 @@
 .change-page{
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+.modal-footer-edit-button{
+    background-color: rgb(237, 178, 100) !important;
+    border: none !important;
 }

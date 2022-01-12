@@ -3,6 +3,7 @@ import { Dropdown, DropdownButton } from 'react-bootstrap'
 import './index.css'
 import {decodeToken, getToken} from '../../utils/Common'
 
+
 export default function LogoutBut() {
     
     const [username, setUsername] = useState()
@@ -43,7 +44,7 @@ export default function LogoutBut() {
                     <Dropdown.Item /*href="/edoatap/admin"*/>Αιτήσεις</Dropdown.Item>
                 )}
                 {role === "user" && (
-                    <Dropdown.Item /*href="/edoatap/user"*/>Οι αιτήσεις μου</Dropdown.Item>
+                    <Dropdown.Item href="/"> <b>Νέα Αίτηση</b></Dropdown.Item>
                 )}
                 <Dropdown.Item onClick={LogOut} href="/">Έξοδος</Dropdown.Item>
             </DropdownButton>
