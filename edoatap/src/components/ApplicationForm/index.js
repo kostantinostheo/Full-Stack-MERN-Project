@@ -162,6 +162,10 @@ export default function ApplicationForm()
 
     return(
     <div>
+        <br/>
+        <div className="form-title">
+          <h3><b><u>Δημιουργία Νέας Αίτησης</u></b></h3>
+        </div>
         <Row id="user-details-label">
             <h4><b>Προσωπικά Στοιχεία</b></h4>
         </Row>

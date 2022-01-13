@@ -1,3 +1,8 @@
+.form-title {
+  color: rgb(61, 110, 201);
+  margin:auto;
+}
+
 .application-form {
     width: 65%;
     margin-top: 1em;
