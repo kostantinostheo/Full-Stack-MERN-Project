@@ -14,6 +14,7 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import UpdateDashboard from './components/UpdateDashboard';
 import Contact from './components/Contact';
+import ApplicationForm from './components/ApplicationForm';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/register' exact element={<Register />}/>
           <Route path='/dashboard' exact element={<Dashboard />}/>
           <Route path='/epikoinonia' exact element={<Contact/>}/>
+          <Route path='/nea-aitisi' exact element={<ApplicationForm/>}/>
         </Routes>
         <br/><br/>
         <Footer />
