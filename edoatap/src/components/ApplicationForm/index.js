@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import { Modal, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
+import { SplitButton ,DropdownButton, Dropdown,  ButtonGroup, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
 import base64 from 'base-64';
-import { ConvertToLocalDate } from '../../utils/Common'
+import { universitiesList, ConvertToLocalDate, getToken } from '../../utils/Common'
 import { PlusCircle, Trash } from 'react-bootstrap-icons'
 import './index.css'
 
@@ -77,18 +77,11 @@ export default function ApplicationForm()
         let dateComponents = responseDate.split('T');
         return new Date(dateComponents[0]).toLocaleDateString("el-GR")
     }
-    const NextPage = () => {
-        const temp = i+4
-        setI(temp)
-    }
-    const PrevPage = () => {
-        const temp = i-4
-        setI(temp)
-      }
 
-   /* useEffect(()=> {
+
+   useEffect(()=> {
         setI(0)
-        const token = localStorage.getItem('token')
+        const token = getToken()
         if(token){
             const parts = token.split('.');
             decodedToken = base64.decode(parts[1]);
@@ -108,7 +101,7 @@ export default function ApplicationForm()
             //If you are not signed in yet, return to login page
             window.location.href = '/login'
         }
-    }, [])*/
+    }, [])
 
 
 
@@ -172,46 +165,46 @@ export default function ApplicationForm()
         <div className="user-data-form">
             <Form.Group className="mb-3">
                 <Form.Label style={{"float": "left"}}>Email</Form.Label>
-                <Form.Control placeholder={email} disabled />
+                <Form.Control placeholder={email}  />
             </Form.Group>
             <Form.Group className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Γέννησης</Form.Label>
-                <Form.Control placeholder={date} disabled />
+                <Form.Control placeholder={date}  />
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Τηλέφωνο</Form.Label>
-                <Form.Control type="text" placeholder={phone} disabled/>
+                <Form.Control type="text" placeholder={phone} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label style={{"float": "left"}}>Κινητό</Form.Label>
-                <Form.Control type="text" placeholder={mobile} disabled/>
+                <Form.Control type="text" placeholder={mobile} />
                 </Form.Group>
             </Row>
             <Row className="mb-1">
                 <Form.Group as={Col} className="mb-3">
                     <Form.Label style={{"float": "left"}}>Διεύθυνση</Form.Label>
-                    <Form.Control placeholder={address} disabled />
+                    <Form.Control placeholder={address}  />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3">
                     <Form.Label style={{"float": "left"}}>Πόλη</Form.Label>
-                    <Form.Control placeholder={city} disabled />
+                    <Form.Control placeholder={city}  />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3">
                     <Form.Label style={{"float": "left"}}>Τ.Κ.</Form.Label>
-                    <Form.Control placeholder={city_id} disabled />
+                    <Form.Control placeholder={city_id}  />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Αριθμός Δ.Τ.</Form.Label>
-                <Form.Control type="text" placeholder={_id_number} disabled/>
+                <Form.Control type="text" placeholder={_id_number} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label style={{"float": "left"}}>Έκδουσα Αρχή</Form.Label>
-                <Form.Control type="text" placeholder={_id_city} disabled/>
+                <Form.Control type="text" placeholder={_id_city} />
                 </Form.Group>
             </Row>
         </div>
@@ -225,19 +218,18 @@ export default function ApplicationForm()
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Κατάσταση Αίτησης</Form.Label>
-                <Form.Control placeholder={application_status} disabled />
+                <Form.Control placeholder={application_status}  />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Είδος Αίτησης</Form.Label>
-                <Form.Control placeholder={application_type} disabled />
+                <Form.Control placeholder={application_type}  />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Αίτησης</Form.Label>
-                <Form.Control placeholder={application_date} disabled />
+                <Form.Control placeholder={application_date}  />
             </Form.Group>
             </Row>
         </div>
-        
         <br/>
 
         <Row id="user-details-label">
@@ -245,57 +237,70 @@ export default function ApplicationForm()
         </Row><br/>
         <div className="user-data-form"> 
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Είδος Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={type_of_studies} disabled/>
-                </Form.Group>
+                <Row as={Col} className="drop-uni-row">
+                    <Form.Label style={{"textAlign": "left"}}>Είδος Σπουδών</Form.Label>
+                    <DropdownButton id="button-uni" title="Επιλογή είδους">
+                        <Dropdown.Item id="button-sel-uni" >Δια ζώσης</Dropdown.Item>
+                        <Dropdown.Item id="button-sel-uni" >Εξ' αποστάσεως</Dropdown.Item>
+                    </DropdownButton>
+                </Row>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label style={{"float": "left"}}>Χώρα Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={country_of_studies} disabled/>
+                <Form.Control type="text" placeholder={country_of_studies} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Εκπαιδευτικό Ίδρυμα</Form.Label>
-                <Form.Control placeholder={university} disabled />
+                <Form.Control placeholder={university}  />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Τύπος Εκπαιδευτικού Ιδρύματος</Form.Label>
-                <Form.Control placeholder={university_type} disabled />
+                <Form.Control placeholder={university_type}  />
             </Form.Group>
         
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Τίτλος Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={title_of_studies} disabled/>
+                <Form.Control type="text" placeholder={title_of_studies} />
             </Form.Group>
 
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Εγγραφής</Form.Label>
-                <Form.Control placeholder={sign_in_date} disabled />
+                <Form.Control placeholder={sign_in_date}  />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Αποφοίτησης</Form.Label>
-                <Form.Control type="text" placeholder={date_of_graduation} disabled/>
+                <Form.Control type="text" placeholder={date_of_graduation} />
             </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>ECTS</Form.Label>
-                <Form.Control placeholder={credits} disabled />
+                <Form.Control placeholder={credits}  />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Διάρκεια Σπουδών (σε χρόνια)</Form.Label>
-                <Form.Control type="text" placeholder={years_of_studies} disabled/>
+                <Form.Control type="text" placeholder={years_of_studies} />
             </Form.Group>
             </Row>
-            <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Αντιστοιχεία και Ισοτιμία με Εκπαιδευτικό Ίδρυμα</Form.Label>
-                <Form.Control type="text" placeholder={university_department_of_choice} disabled/>
-            </Form.Group>
+            <Row className="drop-uni-row">
+            <Form.Label style={{"textAlign": "left"}}>Αντιστοιχεία και Ισοτιμία με Εκπαιδευτικό Ίδρυμα</Form.Label>
+            <DropdownButton id="button-uni" title="Επιλογή Εκπαιδευτικού Ιδρύματος">
+                <Dropdown.Item id="button-sel-uni" >{universitiesList[0]}</Dropdown.Item>
+                <Dropdown.Item id="button-sel-uni" >{universitiesList[1]}</Dropdown.Item>
+                <Dropdown.Item id="button-sel-uni" >{universitiesList[2]}</Dropdown.Item>
+            </DropdownButton>
+            </Row>
+            <Row  className="button-container">
+                <Button id="application-buttons" as={Col} variant="primary">Προσωρινή Αποθήκευση</Button>
+                <Button id="application-buttons" as={Col} variant="success">Υποβολή</Button>{' '}
+                <Button id="application-buttons" as={Col} variant="danger">Διαγραφή</Button>
+            </Row>
       </div>
+
     </div>
     );
 }

@@ -9,3 +9,27 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+#button-uni{
+  height: 38px;
+  border: none !important;
+  float:  left;
+  width: 600px;
+}
+
+#button-sel-uni{
+  height: 38px;
+  border: none !important;
+  float:  left;
+  width: 600px;
+}
+
+.button-container{
+  padding-top: 3em;
+  margin-left: 15em !important;
+  margin-right: 15em !important;
+}
+#application-buttons{
+
+}
