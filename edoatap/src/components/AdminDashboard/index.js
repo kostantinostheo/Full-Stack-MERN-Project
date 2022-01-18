@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { Modal, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
 import base64 from 'base-64';
-import { ConvertToLocalDate } from '../../utils/Common'
+import { decodeToken , ConvertToLocalDate } from '../../utils/Common'
 import { PlusCircle, Trash } from 'react-bootstrap-icons'
 import './index.css'
 import Pages from '../Pages';
@@ -46,7 +46,7 @@ export default function Dashboard()
     }
 
     async function getApplications(){
-        const res = await fetch(`http://localhost:3000/applications/api/${decodedToken.user_id}`)
+        const res = await fetch(`http://localhost:3000/applications/api/`)
         const data = await res.json()
         setApplicationNum(data.length)
 
@@ -87,30 +87,31 @@ export default function Dashboard()
         setI(temp)
       }
 
-    // useEffect(()=> {
-    //     setI(0)
-    //     const token = localStorage.getItem('token')
-    //     if(token){
-    //         const parts = token.split('.');
-    //         decodedToken = base64.decode(parts[1]);
-    //         decodedToken = JSON.parse(decodedToken);
+    useEffect(()=> {
+        setI(0)
+        const token = localStorage.getItem('token')
+        let decode = decodeToken(token)
+        if(token && decode.status == "admin"){
+            const parts = token.split('.');
+            decodedToken = base64.decode(parts[1]);
+            decodedToken = JSON.parse(decodedToken);
 
-    //         if(!decodedToken){
-    //             localStorage.removeItem('token')
-    //             history.reaplace('/login')
-    //         }else{
-    //             setStatus(decodedToken.status)
-    //             setId(decodedToken.user_id)
-    //             getUserData()
-    //             getApplications()
-    //         }
-    //     }
-    //     else{
-    //         //If you are not signed in yet, return to login page
-    //         window.location.href = '/login'
-    //     }
-    // }
-    // , [])
+            if(!decodedToken){
+                localStorage.removeItem('token')
+                history.reaplace('/login')
+            }else{
+                setStatus(decodedToken.status)
+                setId(decodedToken.user_id)
+                getUserData()
+                getApplications()
+            }
+        }
+        else{
+            //If you are not signed in yet, return to login page
+            window.location.href = '/login'
+        }
+    }
+    , [])
 
 
 

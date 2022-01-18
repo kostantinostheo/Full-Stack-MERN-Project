@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import "./index.css";
+import { getToken, decodeToken } from "../../utils/Common";
 
 export default function Login() {
 
@@ -29,7 +30,12 @@ export default function Login() {
         if(data.token){
           localStorage.setItem('token', data.token)
           alert('Login Succesful')
-          window.location.href = '/dashboard'
+          
+          let decode = decodeToken(getToken())
+          if(decode.status == "user")
+            window.location.href = '/dashboard'
+          else
+            window.location.href = '/admindashboard'
         }
         console.log(data)
     }
