@@ -40,7 +40,7 @@ export default function LogoutBut() {
         <div className='logout-but'>
             <DropdownButton id='drop' title={username + " " +lastname}>
                 {role === "admin" && (
-                    <Dropdown.Item /*href="/edoatap/admin"*/>Αιτήσεις</Dropdown.Item>
+                    <Dropdown.Item href="/admindashboard">Αιτήσεις</Dropdown.Item>
                 )}
                 {role === "user" && (
                     <Dropdown.Item href="/dashboard">Προφίλ</Dropdown.Item>

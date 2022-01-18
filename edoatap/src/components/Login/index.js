@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import { decodeToken, getToken } from "../../utils/Common";
 import "./index.css";
-import { getToken, decodeToken } from "../../utils/Common";
 
 export default function Login() {
 
