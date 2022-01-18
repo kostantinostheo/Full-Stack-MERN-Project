@@ -1,11 +1,21 @@
+.header {
+  color: rgb(56, 75, 185);
+  margin:auto;
+}
+
 .title {
     color:rgb(42, 99, 228);
     padding-top: 2em;
     padding-bottom: 2em;
     text-align: left;
     text-decoration: none;
-    padding-left: 25em;
+    padding-left: 18em;
 
+}
+
+.listgroup {
+  margin:auto;
+  width: 60%
 }
 
 .text_info {
@@ -17,6 +27,9 @@
     padding-bottom: 15em;
 }
 
+#text{
+    text-align: left;
+}
 #site-info{
     height: 100%;
     width: 60%;

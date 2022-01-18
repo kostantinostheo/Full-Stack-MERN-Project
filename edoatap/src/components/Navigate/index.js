@@ -10,7 +10,7 @@ export default function Navigate(){
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Αιτήσεις" id="top-nav-dropdown">
-              <NavDropdown.Item href="/nea-aitisi">Δημιουργία Νέας Αίτησεις</NavDropdown.Item>
+              <NavDropdown.Item href="/nea-aitisi">Δημιουργία Νέας Αίτησης</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/odigos-etiseon">Οδηγός Αιτήσεων</NavDropdown.Item>
             </NavDropdown>

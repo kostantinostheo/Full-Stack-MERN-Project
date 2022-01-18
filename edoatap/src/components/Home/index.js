@@ -6,7 +6,12 @@ import Pages from '../Pages';
 
 export default function Home() {
   return (
-    <div>
+    <div><br/>
+      <div className="advertisment">
+        <h4>Αναγνώρισε Τώρα κι εσύ το πτυχίο σου</h4>
+        Τώρα με εύκολο τρόπο χάρη στην ιστοσελίδα eDoatap, με λίγα μόνο βήματα!<br/>
+        Πάτα <a href="/odigos-etiseon">εδώ</a> και δες πόσο εύκολα γίνεται!
+      </div><br/>
       <div className="title">
         <h4>Αξιοσημείωτα</h4>
       </div>
