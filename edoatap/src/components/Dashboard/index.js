@@ -142,7 +142,7 @@ export default function Dashboard()
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Τηλέφωνο</Form.Label>
-                <Form.Control type="text" placeholder={phone} disabled/>
+                <Form.Control type="text" placeholder={phone} disabled={true}/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
@@ -199,12 +199,8 @@ export default function Dashboard()
                 <td>{applicationType[i]}</td>
                 <td>{applicationStatus[i]}</td>
                 <td className="buttons-holder">
-                        { 
-                        applicationStatus[i] === "Αποθηκευμένη" &&
-                        (<Button className="but-table-edit">Επεξεργασία</Button>) 
-                        }
-                        <Button className="but-table-delete" ><Trash/></Button>
-                        <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i])}}>Προβολή</Button>
+                    <Button className="but-table-delete" ><Trash/></Button>
+                    <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i])}}>Προβολή</Button>
                 </td>
                 </tr>
                 <tr>
@@ -212,12 +208,9 @@ export default function Dashboard()
                 <td>{applicationDate[i+1]}</td>
                 <td>{applicationType[i+1]}</td>
                 <td>{applicationStatus[i+1]}</td>
-                <td className="buttons-holder">{ 
-                        applicationStatus[i+1] === "Αποθηκευμένη" &&
-                        (<Button className="but-table-edit">Επεξεργασία</Button>) 
-                        }
-                        <Button className="but-table-delete" ><Trash/></Button>
-                        <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+1])}} >Προβολή</Button>
+                <td className="buttons-holder">
+                    <Button className="but-table-delete" ><Trash/></Button>
+                    <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+1])}} >Προβολή</Button>
                 </td>
                 </tr>
                 <tr>
@@ -225,12 +218,9 @@ export default function Dashboard()
                 <td>{applicationDate[i+2]}</td>
                 <td>{applicationType[i+2]}</td>
                 <td>{applicationStatus[i+2]}</td>
-                <td className="buttons-holder">{ 
-                        applicationStatus[i+2] === "Αποθηκευμένη" &&
-                        (<Button className="but-table-edit">Επεξεργασία</Button>) 
-                        }
-                        <Button className="but-table-delete" ><Trash/></Button>
-                        <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+2])}}>Προβολή</Button>
+                <td className="buttons-holder">
+                    <Button className="but-table-delete" ><Trash/></Button>
+                    <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+2])}}>Προβολή</Button>
                 </td>
                 </tr>
                 <tr>
@@ -238,12 +228,9 @@ export default function Dashboard()
                 <td>{applicationDate[i+3]}</td>
                 <td>{applicationType[i+3]}</td>
                 <td>{applicationStatus[i+3]}</td>
-                <td className="buttons-holder">{ 
-                        applicationStatus[i+3] === "Αποθηκευμένη" &&
-                        (<Button className="but-table-edit">Επεξεργασία</Button>) 
-                        }
-                        <Button className="but-table-delete" ><Trash/></Button>
-                        <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+3])}}>Προβολή</Button>
+                <td className="buttons-holder">
+                    <Button className="but-table-delete" ><Trash/></Button>
+                    <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+3])}}>Προβολή</Button>
                 </td>
                 </tr>
             </tbody>
