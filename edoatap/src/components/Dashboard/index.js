@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { Modal, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
 import base64 from 'base-64';
-import { ConvertToLocalDate } from '../../utils/Common'
+import { ConvertToLocalDate, decodeToken } from '../../utils/Common'
 import { PlusCircle, Trash } from 'react-bootstrap-icons'
 import './index.css'
 
 export default function Dashboard()
 {
+    //User 
     const [status, setStatus] = useState()
     const [user_id, setId] = useState()
     const [firstname, setFirstName] = useState()
@@ -89,11 +90,12 @@ export default function Dashboard()
     useEffect(()=> {
         setI(0)
         const token = localStorage.getItem('token')
-        if(token){
+        let decode = decodeToken(token)
+
+        if(token && decode.status == "user"){
             const parts = token.split('.');
             decodedToken = base64.decode(parts[1]);
             decodedToken = JSON.parse(decodedToken);
-
             if(!decodedToken){
                 localStorage.removeItem('token')
                 history.reaplace('/login')
@@ -105,8 +107,10 @@ export default function Dashboard()
             }
         }
         else{
-            //If you are not signed in yet, return to login page
-            window.location.href = '/login'
+            if(!token)
+                window.location.href = '/login'
+            else if(token && decode.status == "admin")
+                window.location.href = '/'
         }
     }, [])
 
@@ -175,7 +179,7 @@ export default function Dashboard()
         <br/>
         <Row id="applications-label">
             <Col><h4><b>Αιτήσεις</b></h4></Col>
-            <Col><Button href="/" style={{"float" : "right"}}><PlusCircle/> Δημιουργία Νέας Αίτησης</Button></Col>
+            <Col><Button href="/nea-aitisi" style={{"float" : "right"}}><PlusCircle/> Δημιουργία Νέας Αίτησης</Button></Col>
         </Row>
         <div className="user-applicatio-table">
         <Table  striped bordered hover size="sm">

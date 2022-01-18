@@ -4,9 +4,29 @@ const Application = require('../models/application')
 const jwt = require('jsonwebtoken')
 const application = require('../models/application')
 
-// const {MongoClient}  = require('mongodb')
+const {MongoClient}  = require('mongodb')
 
 require('dotenv').config()
+
+const uri = process.env.CLIENT_DB_URL
+
+async function dbGetLastApplicationId() {
+    const client = new MongoClient(uri, { useUnifiedTopology: true })
+    try {
+        await client.connect()
+        const db = client.db("edoatap")
+        const users = db.collection("applications")
+        const number = await users.estimatedDocumentCount()
+        return number
+    }catch (error){
+        console.error(error)
+    }
+    finally{
+        client.close()
+    }
+  }
+
+
 
 //Get all applications from the db
 router.get('/api/', async(req,res) => {
@@ -76,14 +96,14 @@ async function getApplicationByAppId(req, res, next){
 /* Submit a new application to database */
 router.post('/api/submit', async (req,res) => {
 
-    //let lastId = await dbGetLastUserId()
+    let lastId = await dbGetLastApplicationId()
 
     const application = new Application({
-        application_id: req.body.application_id,
+        application_id: ++lastId,
         user_id: req.body.user_id,
         status: req.body.status,
         application_type: req.body.application_type,
-        application_date: req.body.application_date,
+        application_date: Date.now(),
         type_of_studies: req.body.type_of_studies,
         country_of_studies: req.body.country_of_studies,
         university: req.body.university,
