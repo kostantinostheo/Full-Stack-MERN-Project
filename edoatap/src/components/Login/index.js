@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import { decodeToken, getToken } from "../../utils/Common";
 import "./index.css";
+import { getToken, decodeToken } from "../../utils/Common";
 
 export default function Login() {
 
@@ -35,7 +36,7 @@ export default function Login() {
           if(decode.status == "user")
             window.location.href = '/dashboard'
           else
-            window.location.href = '/'
+            window.location.href = '/admindashboard'
         }
         console.log(data)
     }
