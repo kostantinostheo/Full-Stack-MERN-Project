@@ -22,3 +22,5 @@ export function ConvertToLocalDate(responseDate) {
   let dateComponents = responseDate.split('T');
   return new Date(dateComponents[0]).toLocaleDateString("el-GR")
 }
+
+export const universitiesList = ["ΕΚΠΑ", "ΠΑΠΠΕΙ", "ΠΑΔΑ"]

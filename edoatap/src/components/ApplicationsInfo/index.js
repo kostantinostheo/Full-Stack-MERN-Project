@@ -13,16 +13,14 @@ export default function ApplicationInfo() {
         <Tabs style={{"backgroundColor" : "rgb(245, 245, 245)"}}  defaultActiveKey="1" className="mb-3" >
             <Tab id='tabs-top' eventKey="1" title="Αναγνώριση Διδακτικού Τίτλου:">
                 <div className="title">
-                    <h5>Διαδικασία Υποβολής:</h5>
+                    <h5 id="aco-title">Διαδικασία Υποβολής:</h5>
                 </div>
                 <div className='video'>
                     <ReactPlayer  url='https://www.youtube.com/watch?v=CfPxlb8-ZQ0&ab_channel=Musictag' />
                 </div>
-                <div className="title">
-                    <h5>Υποχρεωτικά Δικαιολογητικά:</h5>
-                </div>
 
                 <Accordion id='site-info' defaultActiveKey="0">
+                    <h5 id="aco-title">Υποχρεωτικά Δικαιολογητικά:</h5>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header className='accordion-title'>Παράβολο</Accordion.Header>
                         <Accordion.Body>
@@ -50,14 +48,8 @@ export default function ApplicationInfo() {
                         αφορούν τον/τους τίτλο/ους σπουδών του.
                         </Accordion.Body>
                     </Accordion.Item>
-                </Accordion>
-                
-                <div className="title">
-                    <h5>Προαιρετικά Δικαιολογητικά:</h5>
-                </div>
-
-                <Accordion id='site-info' defaultActiveKey="0">
-                    <Accordion.Item eventKey="0">
+                <h5 id="aco-title">Προαιρετικά Δικαιολογητικά:</h5>
+                    <Accordion.Item eventKey="3">
                         <Accordion.Header className='accordion-title'>Βεβαίωση Υποτροφίας</Accordion.Header>
                         <Accordion.Body>
                         Για φοιτητές που έχουν γίνει δεκτοί για μεταπτυχιακές σπουδές στην Ελλάδα απαιτήται βεβαίωση του Ι.Κ.Υ
@@ -65,7 +57,7 @@ export default function ApplicationInfo() {
                         πρόγραμμα 
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="1">
+                    <Accordion.Item eventKey="4">
                         <Accordion.Header>Ερωτηματολόγιο</Accordion.Header>
                         <Accordion.Body>
                         Στην περίπτωση των εξ αποστάσεως σπουδών, θα αποστέλλεται απευθείας (ταχυδρομικώς ή ηλεκτρονικώς στο
@@ -80,17 +72,14 @@ export default function ApplicationInfo() {
                 </Accordion>
             </Tab>
             <Tab eventKey="2" title="Αναγνώριση Μεταπτυχιακού Τίτλου">
-            <div className="title">
-                    <h5>Διαδικασία Υποβολής:</h5>
+                <div className="title">
+                    <h5 id="aco-title">Διαδικασία Υποβολής:</h5>
                 </div>
                 <div className='video'>
                     <ReactPlayer  url='https://www.youtube.com/watch?v=CfPxlb8-ZQ0&ab_channel=Musictag' />
                 </div>
-                <div className="title">
-                    <h5>Υποχρεωτικά Δικαιολογητικά:</h5>
-                </div>
-
                 <Accordion id='site-info' defaultActiveKey="0">
+                    <h5 id="aco-title">Υποχρεωτικά Δικαιολογητικά:</h5>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header className='accordion-title'>Παράβολο</Accordion.Header>
                         <Accordion.Body>
@@ -118,14 +107,8 @@ export default function ApplicationInfo() {
                         αφορούν τον/τους τίτλο/ους σπουδών του.
                         </Accordion.Body>
                     </Accordion.Item>
-                </Accordion>
-                
-                <div className="title">
-                    <h5>Προαιρετικά Δικαιολογητικά:</h5>
-                </div>
-
-                <Accordion id='site-info' defaultActiveKey="0">
-                    <Accordion.Item eventKey="0">
+                <h5 id="aco-title">Προαιρετικά Δικαιολογητικά:</h5>
+                    <Accordion.Item eventKey="3">
                         <Accordion.Header className='accordion-title'>Βεβαίωση Υποτροφίας</Accordion.Header>
                         <Accordion.Body>
                         Για φοιτητές που έχουν γίνει δεκτοί για μεταπτυχιακές σπουδές στην Ελλάδα απαιτήται βεβαίωση του Ι.Κ.Υ
@@ -133,7 +116,7 @@ export default function ApplicationInfo() {
                         πρόγραμμα 
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="1">
+                    <Accordion.Item eventKey="4">
                         <Accordion.Header>Ερωτηματολόγιο</Accordion.Header>
                         <Accordion.Body>
                         Στην περίπτωση των εξ αποστάσεως σπουδών, θα αποστέλλεται απευθείας (ταχυδρομικώς ή ηλεκτρονικώς στο
@@ -149,19 +132,16 @@ export default function ApplicationInfo() {
             </Tab>
             <Tab id="tabs-top" eventKey="3" title="Αναγνώριση Βασικού Τίτλου">
                 <div className="title">
-                    <h5>Διαδικασία Υποβολής:</h5>
+                    <h5 id="aco-title">Διαδικασία Υποβολής:</h5>
                 </div>
                 <div className='video'>
                     <ReactPlayer  url='https://www.youtube.com/watch?v=CfPxlb8-ZQ0&ab_channel=Musictag' />
                 </div>
-                <div className="title">
-                    <h5>Υποχρεωτικά Δικαιολογητικά:</h5>
-                </div>
-
                 <Accordion id='site-info' defaultActiveKey="0">
+                    <h5 id="aco-title">Υποχρεωτικά Δικαιολογητικά:</h5>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header className='accordion-title'>Παράβολο</Accordion.Header>
-                        <Accordion.Body className='accordion-body'>
+                        <Accordion.Body>
                         Παράβολο 184,32€ (180€ + 2%χαρτ. + 20%ΟΓΑ χαρτ.) (ΦΕΚ 3165/Β/30-12-2011),για κάθε κρινόμενο
                         τίτλο σπουδών. Το ποσό κατατίθεται μόνο στην Τράπεζα της Ελλάδος (αριθμ. Λογαριασμού του Δ.Ο.Α.Τ.Α.Π.)
                         26072595, ΙΒΑΝ: GR05 0100 0240 0000 0002 6072 595). Στο αποδεικτικό κατάθεσης θα πρέπει να αναφέρεται
@@ -186,14 +166,8 @@ export default function ApplicationInfo() {
                         αφορούν τον/τους τίτλο/ους σπουδών του.
                         </Accordion.Body>
                     </Accordion.Item>
-                </Accordion>
-                
-                <div className="title">
-                    <h5>Προαιρετικά Δικαιολογητικά:</h5>
-                </div>
-
-                <Accordion id='site-info' defaultActiveKey="0">
-                    <Accordion.Item eventKey="0">
+                <h5 id="aco-title">Προαιρετικά Δικαιολογητικά:</h5>
+                    <Accordion.Item eventKey="3">
                         <Accordion.Header className='accordion-title'>Βεβαίωση Υποτροφίας</Accordion.Header>
                         <Accordion.Body>
                         Για φοιτητές που έχουν γίνει δεκτοί για μεταπτυχιακές σπουδές στην Ελλάδα απαιτήται βεβαίωση του Ι.Κ.Υ
@@ -201,7 +175,7 @@ export default function ApplicationInfo() {
                         πρόγραμμα 
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="1">
+                    <Accordion.Item eventKey="4">
                         <Accordion.Header>Ερωτηματολόγιο</Accordion.Header>
                         <Accordion.Body>
                         Στην περίπτωση των εξ αποστάσεως σπουδών, θα αποστέλλεται απευθείας (ταχυδρομικώς ή ηλεκτρονικώς στο

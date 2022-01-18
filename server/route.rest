@@ -7,7 +7,7 @@ Content-Type: application/json
         "status": "Οριστηκοποιημένη",
         "application_type": "Αναγνώρισης",
         "application_date": "{{$datetime 'YYYY-MM-DD'}}",
-        "type_of_studies": "Εξ αποστάσεως",
+        "type_of_studies": "Εξ αποστάσεως3",
         "country_of_studies": "Ολλανδία",
         "university": "Μπραχτουν",
         "university_type": "Πανεπιστήμιο",

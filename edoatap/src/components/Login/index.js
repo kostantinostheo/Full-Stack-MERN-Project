@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
+import { decodeToken, getToken } from "../../utils/Common";
 import "./index.css";
 import { getToken, decodeToken } from "../../utils/Common";
 
@@ -30,7 +31,7 @@ export default function Login() {
         if(data.token){
           localStorage.setItem('token', data.token)
           alert('Login Succesful')
-          
+
           let decode = decodeToken(getToken())
           if(decode.status == "user")
             window.location.href = '/dashboard'
