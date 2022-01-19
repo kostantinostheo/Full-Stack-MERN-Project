@@ -2,7 +2,7 @@ import './index.css'
 import React from 'react';
 import { ListGroup, Accordion, Tabs, Tab, Breadcrumb } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
-
+import { ArrowRight, Dot } from 'react-bootstrap-icons'
 export default function ApplicationInfo() {
   return (
       <div >
@@ -13,21 +13,24 @@ export default function ApplicationInfo() {
                 <div className="header">
                     <h3>Οδηγός Αιτήσεων</h3>
                 </div>
-                <div className="title">
-                    <h5 id="aco-title">Πως να αναγνωρίσετε το πτυχίο σας:</h5>
-                </div>
-                <div className="listgroup">
+
+                <h5 id="aco-title" style={{"width" : "60%" , "marginLeft":"auto", "marginRight": "auto"}}>Πως να αναγνωρίσετε το πτυχίο σας:</h5>
+                <div className="listgroup" id='site-info'>
                   <ListGroup as="ol" numbered>
-                    <ListGroup.Item as="li" id="text">Συνδεθείτε στον προσωπικό σας λογαριασμό eDoatap. Αν δεν έχετε λογαριασμό
-                     πατήστε <a href="/register">εδώ</a> για να δημιουργήσετε.</ListGroup.Item>
-                    <ListGroup.Item as="li" id="text">Πλοηγηθείτε στο πάνω μέρος της σελίδας στις Αιτήσεις -> Δημιουργία νέας αίτησης
-                     και πατήστε πάνω</ListGroup.Item>
-                    <ListGroup.Item as="li" id="text">Θα οδηγηθείτε σε μια νέα σελίδα στην οποία καλείστε να συμπληρώσετε τα προσωπικά
-                     σας στοιχεία όπως και τα στοιχεία του πτυχίου σας</ListGroup.Item>
-                  </ListGroup>
+                    <ListGroup.Item as="li" id="text">Συνδεθείτε στον προσωπικό σας <a href="/login">λογαριασμό</a> eDoatap. Αν δεν έχετε λογαριασμό στον eDoatap
+                    δημιουργήστε εύκολα έναν πατώντας <a href="/register">εδώ</a> ή συδεθείτε με τους κωδικούς <a href="/login" style={{"color" : "rgb(255, 210, 61)", "textDecoration": "none"}}>TAXISNET</a>.</ListGroup.Item>
+                    <ListGroup.Item as="li" id="text">Πλοηγηθείτε στο πάνω μέρος της σελίδας στις <b>Αιτήσεις <ArrowRight/> Δημιουργία νέας αίτησης</b>. </ListGroup.Item>
+                    <ListGroup.Item as="li" id="text">Θα οδηγηθείτε σε μια νέα σελίδα στην οποία καλείστε να συμπληρώσετε: </ListGroup.Item>
+                        <ListGroup as="ol">
+                            <ListGroup.Item as="li" id="text"><Dot/>    Tα προσωπικά σας στοιχεία. </ListGroup.Item>
+                            <ListGroup.Item as="li" id="text"><Dot/>    Tα στοιχεία του πτυχίου σας. </ListGroup.Item>
+                            <ListGroup.Item as="li" id="text"><Dot/>    Να υποβάλεται τα απαραίτητα δικαιολογητικά της αίτησης. </ListGroup.Item>
+                        </ListGroup>
+                    <ListGroup.Item as="li" id="text">Για την ολοκλήρωση της αίτησης και την οριστική υποβολή της θα χρειαστεί η πληρωμή παράβολου.</ListGroup.Item>
+                    </ListGroup>
                 </div>
                 <div className="title">
-                    <h5 id="aco-title">Βοηθητικό βίντεο:</h5>
+                    <h6 style={{"width" : "89%" , "marginLeft":"auto", "marginRight": "auto"}} id="aco-title">Βοηθητικό βίντεο συμπλήρωσης αίτησης:</h6>
                 </div>
                 <div className='video'>
                     <ReactPlayer  url='https://www.youtube.com/watch?v=CfPxlb8-ZQ0&ab_channel=Musictag' />
@@ -38,11 +41,16 @@ export default function ApplicationInfo() {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header className='accordion-title'>Παράβολο</Accordion.Header>
                         <Accordion.Body>
-                        Παράβολο 184,32€ (180€ + 2% χαρτ. + 20% ΟΓΑ χαρτ.) (ΦΕΚ 3165/Β/30-12-2011),για κάθε κρινόμενο
-                        τίτλο σπουδών. Το ποσό κατατίθεται μόνο στην Τράπεζα της Ελλάδος (αριθμ. Λογαριασμού του Δ.Ο.Α.Τ.Α.Π.)
-                        26072595, ΙΒΑΝ: GR05 0100 0240 0000 0002 6072 595). Στο αποδεικτικό κατάθεσης θα πρέπει να αναφέρεται
-                        ως καταθέτης ο πολίτης που υποβάλλει την αίτηση αναγνώρισης. Αναλυτικές πληροφορίες μπορείτε να βρείτε
-                        στο ιστότοπο του Οργανισμού www.doatap.gr 
+                        Παράβολο 184,32€. 
+                        <ul>
+                            <li>
+                                Πληρωμή με χρήση πιστωτικής/χρεωστικής κάρτας μετά την τελική υποβολή της αίτησης.
+                            </li>
+                            <li>
+                            Το ποσό κατατίθεται στην Τράπεζα της Ελλάδος (αριθμ. Λογαριασμού του Δ.Ο.Α.Τ.Α.Π.)
+                            <b>26072595</b>,<b>ΙΒΑΝ: GR05 0100 0240 0000 0002 6072 595)</b>.        
+                            </li>
+                        </ul>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
@@ -57,9 +65,7 @@ export default function ApplicationInfo() {
                         <Accordion.Header>Έντυπο Συγκαταθεσης</Accordion.Header>
                         <Accordion.Body>
                         Συμπληρώνεται και υπογράφετραι μόνο από τον ενδιαφερόμενο για κάθε ένα από τα Ιδρύματα όπου σπούδασε
-                        και είναι διαθέσιμο στο σύνδεσμο "Έντυπα - Οδηγίες" της αρχικής σελίδας eDoatap. Με το έντυπο αυτό, 
-                        εξουσιοδοτείται ο Δ.Ο.Α.Τ.Α.Π. να ζητά από το/τα Ιδρύματα διευκρινιστικά/συμπληρωματικά στοιχεία που 
-                        αφορούν τον/τους τίτλο/ους σπουδών του.
+                        και είναι διαθέσιμο στο σύνδεσμο "Έντυπα - Οδηγίες" της αρχικής σελίδας eDoatap.
                         </Accordion.Body>
                     </Accordion.Item>
                 <h5 id="aco-title">Προαιρετικά Δικαιολογητικά:</h5>
