@@ -1,0 +1,22 @@
+{
+  "name": "e-doatap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"cd edoatap && npm i && npm start\" \"cd server && npm i && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostantinostheo/e-doatap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kostantinostheo/e-doatap/issues"
+  },
+  "homepage": "https://github.com/kostantinostheo/e-doatap#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
