@@ -3,6 +3,8 @@ import React from 'react';
 import { ListGroup, Accordion, Tabs, Tab, Breadcrumb } from 'react-bootstrap'
 import ReactPlayer from 'react-player'
 import { ArrowRight, Dot } from 'react-bootstrap-icons'
+
+
 export default function ApplicationInfo() {
   return (
       <div >
@@ -33,7 +35,7 @@ export default function ApplicationInfo() {
                     <h6 style={{"width" : "89%" , "marginLeft":"auto", "marginRight": "auto"}} id="aco-title">Βοηθητικό βίντεο συμπλήρωσης αίτησης:</h6>
                 </div>
                 <div className='video'>
-                    <ReactPlayer  url='https://www.youtube.com/watch?v=CfPxlb8-ZQ0&ab_channel=Musictag' />
+                    <ReactPlayer  url='https://youtu.be/tGj9fsu7VmE' />
                 </div>
 
                 <Accordion id='site-info' defaultActiveKey="0">
