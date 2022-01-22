@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"cd edoatap && npm i && npm start\" \"cd server && npm i && npm start\""
+    "dev": "npm i && concurrently --kill-others \"cd edoatap && npm i && npm start\" \"cd server && npm i && npm start\""
   },
   "repository": {
     "type": "git",
