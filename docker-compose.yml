@@ -6,7 +6,7 @@ services:
       context: ./edoatap
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 3006:3000
     networks:
       - mern-network
     volumes:
