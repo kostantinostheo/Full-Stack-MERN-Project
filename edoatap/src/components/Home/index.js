@@ -3,14 +3,20 @@ import React from "react";
 import Info from '../Info';
 import { ListGroup } from 'react-bootstrap'
 import Pages from '../Pages';
+import Photo from '../../images/home_page_adv.jpg'
 
 export default function Home() {
   return (
     <div><br/>
       <div className="advertisment">
-        <h4>Αναγνώρισε Τώρα κι εσύ το πτυχίο σου</h4>
-        Τώρα με εύκολο τρόπο χάρη στην ιστοσελίδα eDoatap, με λίγα μόνο βήματα!<br/>
-        Πάτα <a href="/odigos-etiseon">εδώ</a> και δες πόσο εύκολα γίνεται!
+        <div className="image">
+          <img src={Photo} alt=""/>
+        </div>
+        <div className="image-text">
+          <h1>Αναγνώρισε Τώρα κι εσύ το πτυχίο σου</h1>
+          <h4>Τώρα με εύκολο τρόπο χάρη στην ιστοσελίδα eDoatap, με λίγα μόνο βήματα!<br/>
+          Πάτα <a href="/odigos-etiseon">εδώ</a> και δες πόσο εύκολα γίνεται!</h4>
+        </div>
       </div><br/>
       <div className="title">
         <h4>Αξιοσημείωτα</h4>

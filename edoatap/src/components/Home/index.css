@@ -8,8 +8,11 @@
 }
 
 .advertisment {
-  color:rgb(52, 99, 228);
-  background-color:rgb(235, 235, 235);
+  color:rgb(255, 255, 255);
+}
+
+.image {
+  filter: brightness(80%);
 }
 
 .text {
@@ -22,6 +25,12 @@
   background-color: rgb(241, 245, 253);
 }
 
+.image-text {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
 
 #site-info{
   width: 100%;
