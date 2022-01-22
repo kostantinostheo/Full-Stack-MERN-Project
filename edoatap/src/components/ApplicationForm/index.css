@@ -40,3 +40,15 @@
     color: rgb(122, 122, 122);
     text-indent: 10px;
 }
+
+.files{
+  border-style: dashed;
+  height: 4em;
+  background-color: rgb(233, 233, 233);
+}
+.files-dropzone{
+  margin-bottom: auto;
+  margin-top: auto;
+  padding-top: 1em;
+  cursor: pointer;
+}

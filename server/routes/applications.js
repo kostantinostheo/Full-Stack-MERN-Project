@@ -99,9 +99,10 @@ router.post('/api/submit', async (req,res) => {
     let lastId = await dbGetLastApplicationId()
 
     const application = new Application({
-        application_id: ++lastId,
+        application_id: 1000 + (++lastId),
         user_id: req.body.user_id,
         status: req.body.status,
+        result: req.body.result,
         application_type: req.body.application_type,
         application_date: Date.now(),
         type_of_studies: req.body.type_of_studies,
@@ -113,7 +114,8 @@ router.post('/api/submit', async (req,res) => {
         sign_in_date: req.body.sign_in_date,
         date_of_graduation: req.body.date_of_graduation,
         years_of_studies: req.body.years_of_studies,
-        university_department_of_choice: req.body.university_department_of_choice
+        university_department_of_choice: req.body.university_department_of_choice,
+        notes: "-"
     })
 
     try{
@@ -132,10 +134,32 @@ router.post('/api/submit', async (req,res) => {
 
 //Update ones user data
 router.patch('/api/update/:application_id', getApplicationByApplicationId, async (req,res) => {
-    
-    if (req.body.temp != null){
-        res.application.temp = req.body.temp
-    }
+        if(req.body.status != null)
+            res.application.status = req.body.status
+        if(req.body.result != null)
+            res.application.result = req.body.result
+        if(req.body.type_of_studies != null)
+            res.application.type_of_studies= req.body.type_of_studies
+        if(req.body.country_of_studies != null)
+            res.application.country_of_studies= req.body.country_of_studies
+        if(req.body.university != null)
+            res.application.university= req.body.university
+        if(req.body.university_type != null)
+            res.application.university_type= req.body.university_type
+        if(req.body.title_of_studies != null)
+            res.application.title_of_studies= req.body.title_of_studies
+        if(req.body.credits != null)
+            res.application.credits= req.body.credits
+        if(req.body.sign_in_date != null)
+            res.application.sign_in_date = req.body.sign_in_date
+        if(req.body.date_of_graduation != null)
+            res.application.date_of_graduation= req.body.date_of_graduation
+        if(req.body.years_of_studies != null)
+            res.application.years_of_studies= req.body.years_of_studies
+        if(req.body.university_department_of_choice != null)
+            res.application.university_department_of_choice= req.body.university_department_of_choice
+        if(req.body.notes != null)
+            res.application.notes = req.body.notes
     try {
         const updateApplication = await res.application.save()
         res.json(updateApplication)

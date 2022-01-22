@@ -86,7 +86,7 @@
 }
 
 .buttons-holder{
-    width: 30%;
+    width: 15% !important;
 }
 .change-page{
     margin-left: 5px;
@@ -97,4 +97,12 @@
 .modal-footer-edit-button{
     background-color: rgb(237, 178, 100) !important;
     border: none !important;
+}
+.modal-footer-exit-button{
+    background-color: rgb(165, 165, 165) !important;
+    border: none !important;
+}
+
+.right-float{
+    float: right !important;
 }

@@ -13,6 +13,10 @@ const applicationSchemma = new mongoose.Schema({
         type: String,
         required: false
     },
+    result:{
+        type: String,
+        required: false
+    },
     application_type:{
         type: String,
         required:false
@@ -58,6 +62,10 @@ const applicationSchemma = new mongoose.Schema({
         required:false
     },
     university_department_of_choice:{
+        type: String,
+        required:false
+    },
+    notes:{
         type: String,
         required:false
     }
