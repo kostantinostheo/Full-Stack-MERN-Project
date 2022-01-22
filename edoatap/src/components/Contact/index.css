@@ -5,6 +5,7 @@
     width: 90%;
     height: 350px;
     background-color: rgb(247, 247, 247);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #first-header{
@@ -30,7 +31,7 @@
 
 .form-email{
     text-align: left;
-    margin-left: 8em;
+    margin-left: 7em;
     width: 500px;
 }
 

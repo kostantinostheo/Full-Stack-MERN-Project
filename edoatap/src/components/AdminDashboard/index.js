@@ -234,10 +234,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i]}</td>
                 <td>{applicationResults[i]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i] === "Οριστικοποιημένη" &&
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i] === "Οριστικοποιημένη" && applicationResults[i] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i])}}>Προβολή</Button>
                     </div>)
                    }
@@ -250,10 +250,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+1]}</td>
                 <td>{applicationResults[i+1]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+1] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i+1] === "Οριστικοποιημένη" && applicationResults[i+1] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+1])}}>Προβολή</Button>
                     </div>)
                    }
@@ -266,10 +266,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+2]}</td>
                 <td>{applicationResults[i+2]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+2] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i+2] === "Οριστικοποιημένη" && applicationResults[i+2] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+2])}}>Προβολή</Button>
                     </div>)
                    }
@@ -282,10 +282,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+3]}</td>
                 <td>{applicationResults[i+3]}</td>
                 <td className="buttons-holder">
-                    { applicationStatus[i+3] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                    {  applicationStatus[i+3] === "Οριστικοποιημένη" && applicationResults[i+3] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+3])}}>Προβολή</Button>
                     </div>)
                    }
@@ -298,10 +298,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+4]}</td>
                 <td>{applicationResults[i+4]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+4] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i+4] === "Οριστικοποιημένη" && applicationResults[i+4] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+4])}}>Προβολή</Button>
                     </div>)
                    }
@@ -314,10 +314,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+5]}</td>
                 <td>{applicationResults[i+5]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+5] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i+5] === "Οριστικοποιημένη" && applicationResults[i+5] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+5])}}>Προβολή</Button>
                     </div>)
                    }
@@ -330,10 +330,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+6]}</td>
                 <td>{applicationResults[i+6]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+6] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                { applicationStatus[i+6] === "Οριστικοποιημένη" && applicationResults[i+6] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+6])}}>Προβολή</Button>
                     </div>)
                    }
@@ -346,10 +346,10 @@ export default function Dashboard()
                 <td>{applicationStatus[i+7]}</td>
                 <td>{applicationResults[i+7]}</td>
                 <td className="buttons-holder">
-                { applicationStatus[i+7] === "Οριστικοποιημένη" && 
+                <Button className="but-table-delete" ><Trash/></Button>
+                {  applicationStatus[i+7] === "Οριστικοποιημένη" && applicationResults[i+7] === "Υπο Επεξεργασία" &&
                     (
                     <div>
-                    <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => { setAll(index[i+7])}}>Προβολή</Button>
                     </div>)
                    }

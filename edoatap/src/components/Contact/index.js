@@ -7,14 +7,14 @@ export default function Contact(){
   return(
     <div>
         <Alert variant="danger" style={{"paddingLeft": "10em" , "paddingRight" : "10em"}}>
-        <Alert.Heading>Προσοχή!</Alert.Heading>
-        <p style={{"textAlign": "justify"}}>
+        <Alert.Heading style={{"fontSize": "20px"}}>Προσοχή!</Alert.Heading>
+        <p style={{"textAlign": "justify", "fontSize": "14px"}}>
         Σας ενημερώνουμε ότι σύμφωνα με τον χάρτη υγειονομικής ασφάλειας και προστασίας 
         από τη λοίμωξη Covid–19 της Γενικής Γραμματείας Πολιτικής Προστασίας <a href='https://covid19.gov.gr/'>(https://covid19.gov.gr/)</a> 
         και έχοντας υπόψη τα έκτακτα μέτρα προστασίας που λαμβάνονται για προστασία της δημόσιας υγείας,
         η εξυπηρέτηση των ασφαλισμένων γίνεται μετά από τον καθορισμό ραντεβού.
         </p>
-        <p style={{"textAlign": "justify"}}>
+        <p style={{"textAlign": "justify", "fontSize": "14px"}}>
             Απο <b>Δευτέρα 8/11/2021</b>, οι πολίτες που θα προσέρχονται στον ΔΟΑΤΑΠ για να εξυπηρετηθούν, θα πρέπει να επιδεικνύουν:
             <ul>
                 <li><b>Πιστοποιητικό εμβολιασμού</b> ή <b>νόσησης</b> ή <b>αρνητικό rapid test</b> ή <b>αρνητικό μοριακό (PCR) τέτσ</b> και</li>

@@ -35,7 +35,7 @@ export default function ApplicationInfo() {
                     <h6 style={{"width" : "89%" , "marginLeft":"auto", "marginRight": "auto"}} id="aco-title">Βοηθητικό βίντεο συμπλήρωσης αίτησης:</h6>
                 </div>
                 <div className='video'>
-                    <ReactPlayer  url='https://youtu.be/tGj9fsu7VmE' />
+                    <ReactPlayer url='https://youtu.be/tGj9fsu7VmE' />
                 </div>
 
                 <Accordion id='site-info' defaultActiveKey="0">
