@@ -18,7 +18,7 @@ Project Repository: <br>
 
 ---
 
-### A. Local Execution (Recommended)
+### A. Local Execution (Recommended) ![Build Status](http://nikitas-dev-badges.s3-website-us-east-1.amazonaws.com/local-badges/build-status.svg)
 
 #### 1. <b>Dependencies installation [Windows OS]</b>:
 
@@ -40,7 +40,7 @@ and you are ready, now wait and the script will take care of all packages depend
 
 --- 
 
-### B. Docker Execution
+### B. Docker Execution ![Docker](https://img.shields.io/docker/cloud/build/eaudeweb/scratch?label=Docker&style=flat)
 
 #### 1. <b>Dependencies installation [Linux OS]</b>:
 
@@ -73,6 +73,8 @@ Type `y` and hit `Enter` to confirm the installation. Once the install is comple
   The output should verify that Docker is up and running. 
 
 --- 
+
+### Project Structure
 
 #### React Application Structure [Front-End]:
 
