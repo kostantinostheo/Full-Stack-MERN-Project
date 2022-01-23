@@ -72,6 +72,17 @@ Type `y` and hit `Enter` to confirm the installation. Once the install is comple
   ```sudo systemctl status docker```<br>
   The output should verify that Docker is up and running. 
 
+<b>Note:</b> Before start the docker you need to run this command:<br>
+
+```sudo chmod 666 /var/run/docker.sock```<br>
+
+Otherwise the docker will not execute correctly or it will show this message in terminal:
+
+- Compose docker:<br>
+  ```docker-compose build```
+
+- Run docker:<br>
+  ```docker run -dp 5000:3000 e-doatap-spyrosk_docker_client:latest```
 --- 
 
 ### Project Structure
