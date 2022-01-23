@@ -16,6 +16,8 @@ import UpdateDashboard from './components/UpdateDashboard';
 import Contact from './components/Contact';
 import AdminDashboard from './components/AdminDashboard';
 import ApplicationForm from './components/ApplicationForm';
+import ConstructionPage from './components/ConstructionPage';
+import FAQ from './components/FAQ';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path='/epikoinonia' exact element={<Contact/>}/>
           <Route path='/admindashboard' exact element={<AdminDashboard />}/>
           <Route path='/nea-aitisi' exact element={<ApplicationForm/>}/>
+          <Route path='/ipo-kataskevi' exact element={<ConstructionPage/>}/>
+          <Route path='/sixnes-erotisis' exact element={<FAQ/>}/>
         </Routes>
         <br/><br/>
         <Footer />

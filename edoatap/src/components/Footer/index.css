@@ -1,15 +1,19 @@
 .footer {
-  margin:auto;
-  padding:100px;
-  display: flex;
-  flex-direction:row;
-  justify-content:center;
-  background-color:rgb(235, 235, 235);
+  height: 280px;
+  background-color: rgb(245, 245, 245);
 }
 
-.column {
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.row-line{
+  padding-top: 1em;
+}
+
+.text-size-sm{
+  font-size: 14px;
+}
+
+.links{
+  color: rgb(42, 84, 207);
+}
+.text-size-md{
+  font-size: 15px;
 }

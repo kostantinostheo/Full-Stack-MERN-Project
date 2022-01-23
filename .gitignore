@@ -2,5 +2,4 @@
 /vscode
 *.vs
 *.vscode
-
 node_modules/

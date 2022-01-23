@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import { Modal, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
+import {ButtonGroup, Modal, Form, Row , Col, Navbar, Button, Table} from 'react-bootstrap'
 import base64 from 'base-64';
 import { ConvertToLocalDate, decodeToken } from '../../utils/Common'
-import { PlusCircle, Trash } from 'react-bootstrap-icons'
+import { X , PlusCircle, Trash } from 'react-bootstrap-icons'
 import './index.css'
 
 export default function Dashboard()
@@ -26,6 +26,7 @@ export default function Dashboard()
     //Applications
     const [index, setIndex] = useState([]);
     const [applicationStatus, setApplicationStatus] = useState([]);
+    const [applicationResults, getApplicationResults] = useState([]);
     const [applicationType, setApplicationType] = useState([]);
     const [applicationDate, setApplicationDate] = useState([]);
 
@@ -53,6 +54,7 @@ export default function Dashboard()
         for (let i = 0; i < data.length; i++) {
             setIndex( oldVal => [...oldVal, data[i].application_id])
             setApplicationStatus( oldVal => [...oldVal, data[i].status] )
+            getApplicationResults(oldVal => [...oldVal, data[i].result] )
             setApplicationType( oldVal => [...oldVal, data[i].application_type] )
             const dateConverted = await convertFromStringToDate(data[i].application_date)
             setApplicationDate( oldVal => [...oldVal, dateConverted ])
@@ -189,6 +191,7 @@ export default function Dashboard()
                 <th>Ημερομηνία</th>
                 <th>Τύπος Αίτησης</th>
                 <th>Κατάσταση</th>
+                <th>Θέση</th>
                 <th>Ενέργεια</th>
                 </tr>
             </thead>
@@ -198,6 +201,7 @@ export default function Dashboard()
                 <td>{applicationDate[i]}</td>
                 <td>{applicationType[i]}</td>
                 <td>{applicationStatus[i]}</td>
+                <td>{applicationResults[i]}</td>
                 <td className="buttons-holder">
                     <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i])}}>Προβολή</Button>
@@ -208,6 +212,7 @@ export default function Dashboard()
                 <td>{applicationDate[i+1]}</td>
                 <td>{applicationType[i+1]}</td>
                 <td>{applicationStatus[i+1]}</td>
+                <td>{applicationResults[i+1]}</td>
                 <td className="buttons-holder">
                     <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+1])}} >Προβολή</Button>
@@ -218,6 +223,7 @@ export default function Dashboard()
                 <td>{applicationDate[i+2]}</td>
                 <td>{applicationType[i+2]}</td>
                 <td>{applicationStatus[i+2]}</td>
+                <td>{applicationResults[i+2]}</td>
                 <td className="buttons-holder">
                     <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+2])}}>Προβολή</Button>
@@ -228,6 +234,7 @@ export default function Dashboard()
                 <td>{applicationDate[i+3]}</td>
                 <td>{applicationType[i+3]}</td>
                 <td>{applicationStatus[i+3]}</td>
+                <td>{applicationResults[i+3]}</td>
                 <td className="buttons-holder">
                     <Button className="but-table-delete" ><Trash/></Button>
                     <Button className="but-table-preview" onClick={() => {setModalShow(true); setDataParse(index[i+3])}}>Προβολή</Button>
@@ -261,8 +268,10 @@ export default function Dashboard()
 function DataModal(props) {
     
     const _application_id = props.id
-
+    let temp_status
+    let temp_result
     const [application_status, set_application_status] = useState()
+    const [application_result, set_application_result] = useState()
     const [application_type, setApplication_type] = useState()
     const [application_date, setApplication_date] = useState()
     const [type_of_studies, setType_of_studies] = useState()
@@ -275,17 +284,18 @@ function DataModal(props) {
     const [date_of_graduation, set_date_of_graduation] = useState()
     const [years_of_studies, set_years_of_studies] = useState()
     const [university_department_of_choice, set_university_department_of_choice] = useState()
-
+    const [notes, getNotes] = useState()
 
     async function fetchApplicationData(){
-        const res = await fetch(`http://localhost:3000/applications/api/appid/${_application_id}`)
+        let str_ap_id = _application_id.toString()
+        const res = await fetch(`http://localhost:3000/applications/api/appid/${str_ap_id}`)
         const data = await res.json()
-        return data
+        setApplicationData(data)
     }
 
-    async function setApplicationData(){
-        const data = await fetchApplicationData()
+    function setApplicationData(data){
         set_application_status(data.status)
+        set_application_result(data.result)
         setApplication_type(data.application_type)
         const temp_date = ConvertToLocalDate(data.application_date)
         setApplication_date(temp_date)
@@ -301,11 +311,96 @@ function DataModal(props) {
         set_date_of_graduation(temp_grad_date)
         set_years_of_studies(data.years_of_studies)
         set_university_department_of_choice(data.university_department_of_choice)
-
+        getNotes(data.notes)
     }
 
-    if(props.show === true)
-        setApplicationData()
+    async function UpdateApplication(event){
+        let str_ap_id = _application_id.toString()
+        event.preventDefault()
+        try {
+            await fetch(`http://localhost:3000/applications/api/update/${str_ap_id}`, {
+            method: 'PATCH',
+            headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    status: temp_status,
+                    result: temp_result,
+                    type_of_studies: type_of_studies,
+                    country_of_studies: country_of_studies,
+                    university: university,
+                    university_type: university_type,
+                    title_of_studies: title_of_studies,
+                    credits: credits,
+                    sign_in_date: sign_in_date,
+                    date_of_graduation: date_of_graduation,
+                    years_of_studies: years_of_studies,
+                    university_department_of_choice: university_department_of_choice
+                }),
+            })
+        } catch (error) {
+            console.log(error)
+        }   
+        
+        alert('Επιτυχής Αλλαγή Στοιχείων Αίτησης')
+        window.location.href = '/dashboard'
+    }
+
+    const [state , setState] = useState()
+    
+
+
+    const activeState = () => {
+        const temp = false
+        setState(temp)
+    }
+    const disableState = () => {
+        const temp = true
+        setState(temp)
+    }
+   
+    if(props.show){
+        //setState(true)
+        fetchApplicationData()
+    }
+    function isNullorEmpty(){
+        if(type_of_studies== null || country_of_studies == null || 
+        university == null || university_type == null || title_of_studies == null || credits == null || 
+        years_of_studies == null || university_department_of_choice == null)
+            return true
+        else
+            return false
+    }
+    async function saveApplicationData(event){
+        if(!isNullorEmpty()){
+            alert("Παρακαλώ συμπληρώστε όλα τα πεδία της αίτησης")
+        }    
+        else{
+            if (window.confirm('Θέλετε να κάνετε προσωρινή αποθήκευση της αίτησης σας;')) {
+                temp_status = "Αποθηκευμένη"
+                temp_result = "-"
+                await UpdateApplication(event)
+            } else {
+                return
+            }
+        }
+    }
+
+    async function submitApplication(event){
+        if(isNullorEmpty()){
+            console.log(type_of_studies)
+            alert("Παρακαλώ συμπληρώστε όλα τα πεδία της αίτησης")
+        }
+        else{
+            if (window.confirm('Θέλετε να κάνετε οριστική υποβολή της αίτησης σας;\nΗ πράξη αυτή δεν μπορεί να αλλάξει.')) {
+                temp_status = "Οριστικοποιημένη"
+                temp_result = "Υπο Επεξεργασία"
+                await UpdateApplication(event)
+            } else {
+                return
+            }
+        }
+    }
 
     return (
       <Modal
@@ -325,75 +420,90 @@ function DataModal(props) {
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Κατάσταση Αίτησης</Form.Label>
-                <Form.Control placeholder={application_status} disabled />
+                <Form.Control placeholder={application_status} disabled={state} />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Είδος Αίτησης</Form.Label>
-                <Form.Control placeholder={application_type} disabled />
+                <Form.Control placeholder={application_type} disabled={state} />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Αίτησης</Form.Label>
-                <Form.Control placeholder={application_date} disabled />
+                <Form.Control placeholder={application_date} disabled={state} />
             </Form.Group>
             </Row>
             <h5>Ειδικές πληροφορίες:</h5> <br/>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Είδος Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={type_of_studies} disabled/>
+                <Form.Control type="text" placeholder={type_of_studies} disabled={state}  onChange={(e) => setType_of_studies(e.target.value)}/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Label style={{"float": "left"}}>Χώρα Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={country_of_studies} disabled/>
+                <Form.Control type="text" placeholder={country_of_studies} disabled={state} onChange={(e) => set_country_of_studies(e.target.value)}/>
                 </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Εκπαιδευτικό Ίδρυμα</Form.Label>
-                <Form.Control placeholder={university} disabled />
+                <Form.Control placeholder={university} disabled={state} onChange={(e) => set_university(e.target.value)}/>
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Τύπος Εκπαιδευτικού Ιδρύματος</Form.Label>
-                <Form.Control placeholder={university_type} disabled />
+                <Form.Control placeholder={university_type} disabled={state} onChange={(e) => set_university_type(e.target.value)}/>
             </Form.Group>
         
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Τίτλος Σπουδών</Form.Label>
-                <Form.Control type="text" placeholder={title_of_studies} disabled/>
+                <Form.Control type="text" placeholder={title_of_studies} disabled={state} onChange={(e) => set_title_of_studies(e.target.value)}/>
             </Form.Group>
 
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Εγγραφής</Form.Label>
-                <Form.Control placeholder={sign_in_date} disabled />
+                <Form.Control placeholder={sign_in_date} disabled={state}/>
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Ημερομηνία Αποφοίτησης</Form.Label>
-                <Form.Control type="text" placeholder={date_of_graduation} disabled/>
+                <Form.Control type="text" placeholder={date_of_graduation} disabled={state}/>
             </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
                 <Form.Label style={{"float": "left"}}>ECTS</Form.Label>
-                <Form.Control placeholder={credits} disabled />
+                <Form.Control placeholder={credits} disabled={state} onChange={(e) => set_credits(e.target.value)}/>
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Διάρκεια Σπουδών (σε χρόνια)</Form.Label>
-                <Form.Control type="text" placeholder={years_of_studies} disabled/>
+                <Form.Control type="text" placeholder={years_of_studies} disabled={state} onChange={(e) => set_years_of_studies(e.target.value)}/>
             </Form.Group>
             </Row>
+            <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label style={{"float": "left"}}>Αντιστοιχεία και Ισοτιμία με Εκπαιδευτικό Ίδρυμα</Form.Label>
-                <Form.Control type="text" placeholder={university_department_of_choice} disabled/>
+                <Form.Control type="text" placeholder={university_department_of_choice} disabled={state} onChange={(e) => set_university_department_of_choice(e.target.value)}/>
             </Form.Group>
+            </Row>
+            <Row className="mb-3">
+                <Form.Group as={Col} className="mb-3">
+                    <Form.Label style={{"float": "left"}}>Σχόλια Φορέα</Form.Label>
+                    <Form.Control as="textarea" rows={3}  placeholder={notes} disabled />
+                </Form.Group>
+            </Row>
         </div>
         </Modal.Body>
         <Modal.Footer>
             {
                 application_status === "Αποθηκευμένη" && (
-                    <Button className="modal-footer-edit-button" >Επεξεργασία</Button>
+                    <div className="right-float"> 
+                        <ButtonGroup aria-label="Basic example">
+                            {state===false && <Button  className="right-float" variant="primary" onClick={(e)=> {saveApplicationData(e)}}>Αποθήκευση Αλλαγών</Button>}&nbsp;&nbsp;&nbsp;&nbsp;
+                            {state===false && <Button  className="right-float" variant="success" onClick={(e)=> {submitApplication(e)}} >Οριστική Υποβολή</Button>}&nbsp;&nbsp;&nbsp;&nbsp;
+                            { state===false && <Button className="right-float" variant="secondary" onClick={() => disableState()}><X/></Button>}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <Button className="right-float" variant="warning" onClick={() => activeState()} >Επεξεργασία</Button>
+                        </ButtonGroup>
+                    </div>
                 )
             }
         </Modal.Footer>
