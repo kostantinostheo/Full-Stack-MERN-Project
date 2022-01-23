@@ -16,13 +16,14 @@ Project Repository: <br>
 - Database: <b>MongoDB</b>
 - Deploy: <b>Docker</b>
 
-### Execution
+
+### A. Local Execution (Recommended)
 
 1. <b>Dependencies installation [Windows OS]</b>:
 
-In order to execute our project locally, you need to have <b>Node.js</b> and <b>MongoDB</b> intalled to your system.
-<b>You can download the software from the links bellow:</b>
-[Node.js Download](https://nodejs.org/en/download/)
+To execute our project locally, you need to have <b>Node.js</b> and <b>MongoDB</b> intalled to your system. <br>
+<b>You can download the software from the links bellow:</b><br>
+[Node.js Download](https://nodejs.org/en/download/)<br>
 [MongoDB Download](https://docs.mongodb.com/manual/administration/install-community/)
 
 After installation finish: 
@@ -35,6 +36,38 @@ After installation finish:
 npm run dev
  ```
 and you are ready, now wait and the script will take care of all packages dependencies and it'll make sure to work.
+
+
+### B. Docker Execution
+
+1. <b>Dependencies installation [Linux OS]</b>:
+
+- Open a terminal window and update the local repository with:
+```sudo apt update```<br>
+
+- Before installing the software, make sure you remove any old Docker packages on your Ubuntu by running the command:
+  ```sudo apt-get remove docker docker-engine docker.io```
+
+- Now let’s install Docker on Ubuntu. Run the following command in the terminal window:
+  ```sudo apt install docker.io```  
+Type `y` and hit `Enter` to confirm the installation. Once the install is completed, the output notifies you Docker has been installed.
+
+- To verify the installation check the Docker version:
+  ```docker –version```
+
+	The output displays the Docker version. Should look like this: `Docker version 20.10.12, build e91ed57`
+
+2. <b>Starting Docker Service</b>:
+
+- Start the Docker service by running:
+  ```sudo systemctl start docker```
+
+- Then, enable it to run at startup:
+  ```sudo systemctl enable docker```
+
+- To check the status of the service, run:
+  ```sudo systemctl status docker```
+  The output should verify that Docker is up and running. 
 
 #### React Application Structure [Front-End]:
 
@@ -51,6 +84,5 @@ Also inside `/src` you will find the main React file `App.js`
   - a direcory `/models` with the Schemas of our MongoDB collections,
   - a direcory `/routes` with the API call routes (the URIs that out api listen)
   - a `server.js` file. This is the main file for out connection with the database.
-  
   
   <br>
