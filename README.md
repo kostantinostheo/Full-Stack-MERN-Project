@@ -10,17 +10,31 @@ Project Repository: <br>
 [![start](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kostantinostheo/e-doatap)
 
 
-### Project Info and Structure:
+### Project Info:
 - Front-End: <b>React</b>
-- Back-End: <b>NodeJS ~ Express-API</b>
+- Back-End: <b>Node.js ~ Express-API</b>
 - Database: <b>MongoDB</b>
 - Deploy: <b>Docker</b>
 
-In order to execute our project without Docker, you need to have <b>NodeJS</b> and <b>MongoDB</b> intalled to your system. <br/>
-You can download the software from the links bellow: <br>
-[NodeJS Download](https://nodejs.org/en/download/) <br>
-[MongoDB Download](https://docs.mongodb.com/manual/administration/install-community/).
+### Execution
 
+1. <b>Dependencies installation [Windows OS]</b>:
+
+In order to execute our project locally, you need to have <b>Node.js</b> and <b>MongoDB</b> intalled to your system.
+<b>You can download the software from the links bellow:</b>
+[Node.js Download](https://nodejs.org/en/download/)
+[MongoDB Download](https://docs.mongodb.com/manual/administration/install-community/)
+
+After installation finish: 
+- Be sure that the direcory `C:\Program Files\MongoDB\Server\<version>\bin` was successfully created.
+- Check your Node.js version with `node --version` in you command line. The version should appear like `v14.17.0`
+
+2. <b>Execution</b>
+- Navigate to our project root directory `/edoatap` and type the following command in your commnad line:
+```
+npm run dev
+ ```
+and you are ready, now wait and the script will take care of all packages dependencies and it'll make sure to work.
 
 #### React Application Structure [Front-End]:
 

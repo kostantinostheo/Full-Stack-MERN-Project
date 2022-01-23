@@ -188,37 +188,37 @@ export default function ApplicationForm()
             </Form.Group>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Τηλέφωνο</Form.Label>
+                <Form.Label style={{"float": "left"}}>Τηλέφωνο*</Form.Label>
                 <Form.Control type="text" placeholder={phone} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label style={{"float": "left"}}>Κινητό</Form.Label>
+                <Form.Label style={{"float": "left"}}>Κινητό*</Form.Label>
                 <Form.Control type="text" placeholder={mobile} />
                 </Form.Group>
             </Row>
             <Row className="mb-1">
                 <Form.Group as={Col} className="mb-3">
-                    <Form.Label style={{"float": "left"}}>Διεύθυνση</Form.Label>
+                    <Form.Label style={{"float": "left"}}>Διεύθυνση*</Form.Label>
                     <Form.Control placeholder={address}  />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3">
-                    <Form.Label style={{"float": "left"}}>Πόλη</Form.Label>
+                    <Form.Label style={{"float": "left"}}>Πόλη*</Form.Label>
                     <Form.Control placeholder={city}  />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3">
-                    <Form.Label style={{"float": "left"}}>Τ.Κ.</Form.Label>
+                    <Form.Label style={{"float": "left"}}>Τ.Κ*.</Form.Label>
                     <Form.Control placeholder={city_id}  />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Αριθμός Δ.Τ.</Form.Label>
+                <Form.Label style={{"float": "left"}}>Αριθμός Δ.Τ.*</Form.Label>
                 <Form.Control type="text" placeholder={_id_number} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label style={{"float": "left"}}>Έκδουσα Αρχή</Form.Label>
+                <Form.Label style={{"float": "left"}}>Έκδουσα Αρχή*</Form.Label>
                 <Form.Control type="text" placeholder={_id_city} />
                 </Form.Group>
             </Row>
@@ -232,7 +232,7 @@ export default function ApplicationForm()
         <div className="user-data-form">
         <Form.Group as={Col} className="mb-3">
             <Row>
-            <Form.Label  style={{"textAlign": "left"}}>Είδος Αίτησης</Form.Label>
+            <Form.Label  style={{"textAlign": "left"}}>Είδος Αίτησης*</Form.Label>
             </Row>
             <Row>
             <DropdownButton  onSelect={(e)=>setApplication_type(e)} id="button-uni" title={application_type == null ? "Επιλογη Τύπου" : application_type}>
@@ -247,7 +247,7 @@ export default function ApplicationForm()
         <div className="user-data-form"> 
             <Row className="mb-3">
                 <Row as={Col} className="drop-uni-row">
-                    <Form.Label style={{"textAlign": "left"}}>Είδος Σπουδών</Form.Label>
+                    <Form.Label style={{"textAlign": "left"}}>Είδος Σπουδών*</Form.Label>
                     <DropdownButton onSelect={(e)=> setType_of_studies(e)} id="button-uni" title={type_of_studies == null ? "Επιλογη Τύπου" : type_of_studies}>
                         <Dropdown.Item eventKey="Δια ζώσης" id="button-sel-uni" >Δια ζώσης</Dropdown.Item>
                         <Dropdown.Item eventKey="Εξ αποστάσεως" id="button-sel-uni" >Εξ' αποστάσεως</Dropdown.Item>
@@ -255,48 +255,48 @@ export default function ApplicationForm()
                 </Row>
 
                 <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label style={{"float": "left"}}>Χώρα Σπουδών</Form.Label>
+                <Form.Label style={{"float": "left"}}>Χώρα Σπουδών*</Form.Label>
                 <Form.Control type="text" placeholder={country_of_studies} onChange={ (e) => set_country_of_studies(e.target.value) }/>
                 </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
-                <Form.Label style={{"float": "left"}}>Εκπαιδευτικό Ίδρυμα</Form.Label>
+                <Form.Label style={{"float": "left"}}>Εκπαιδευτικό Ίδρυμα*</Form.Label>
                 <Form.Control placeholder={university} onChange={(e) => set_university(e.target.value)} />
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
-                <Form.Label style={{"float": "left"}}>Τύπος Εκπαιδευτικού Ιδρύματος</Form.Label>
+                <Form.Label style={{"float": "left"}}>Τύπος Εκπαιδευτικού Ιδρύματος*</Form.Label>
                 <Form.Control placeholder={university_type} onChange={(e) => set_university_type(e.target.value)} />
             </Form.Group>
         
             <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Τίτλος Σπουδών</Form.Label>
+                <Form.Label style={{"float": "left"}}>Τίτλος Σπουδών*</Form.Label>
                 <Form.Control type="text" placeholder={title_of_studies} onChange={(e) => set_title_of_studies(e.target.value)}/>
             </Form.Group>
 
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
-                <Form.Label style={{"float": "left"}}>Ημερομηνία Εγγραφής</Form.Label>
+                <Form.Label style={{"float": "left"}}>Ημερομηνία Εγγραφής*</Form.Label>
                 <DatePicker className='date-picker' selected={sign_in_date} onChange={(e) => set_sign_in_date(e)} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Ημερομηνία Αποφοίτησης</Form.Label>
+                <Form.Label style={{"float": "left"}}>Ημερομηνία Αποφοίτησης*</Form.Label>
                 <DatePicker className='date-picker' selected={date_of_graduation} onChange={(e) => set_date_of_graduation(e)} />
             </Form.Group>
             </Row>
             <Row className="mb-3">
             <Form.Group as={Col} className="mb-3">
-                <Form.Label style={{"float": "left"}}>ECTS</Form.Label>
+                <Form.Label style={{"float": "left"}}>ECTS*</Form.Label>
                 <Form.Control placeholder={credits} onChange={(e) => set_credits(e.target.value)} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label style={{"float": "left"}}>Διάρκεια Σπουδών (σε χρόνια)</Form.Label>
+                <Form.Label style={{"float": "left"}}>Διάρκεια Σπουδών (σε χρόνια)*</Form.Label>
                 <Form.Control type="text" placeholder={years_of_studies} onChange={(e) => set_years_of_studies(e.target.value)}/>
             </Form.Group>
             </Row>
             <Row className="drop-uni-row">
-            <Form.Label style={{"textAlign": "left"}}>Αντιστοιχεία και Ισοτιμία με Εκπαιδευτικό Ίδρυμα</Form.Label>
+            <Form.Label style={{"textAlign": "left"}}>Αντιστοιχεία και Ισοτιμία με Εκπαιδευτικό Ίδρυμα*</Form.Label>
             <DropdownButton onSelect={(e)=> set_university_department_of_choice(e)} id="button-uni" title={university_department_of_choice == null ? "Επιλογή Εκπαιδευτικού Ιδρύματος" : university_department_of_choice}>
                 {universitiesList.map((item,index)=>{
                     return <Dropdown.Item eventKey={item} id="button-sel-uni" >{item}</Dropdown.Item>
@@ -318,7 +318,7 @@ export default function ApplicationForm()
           maxFileSize={10000000}
           minFileSize={0}
           clickable>
-          Drop files here or click to upload
+          Κλικ εδώ για υποβολή
         </Files>        
         </div>
         <h6 style={{"textAlign": "left", "color":"blue", "paddingTop": "3px"}}>{filename}</h6>
