@@ -19,7 +19,7 @@ Project Repository: <br>
 
 ### A. Local Execution (Recommended)
 
-1. <b>Dependencies installation [Windows OS]</b>:
+#### 1. <b>Dependencies installation [Windows OS]</b>:
 
 To execute our project locally, you need to have <b>Node.js</b> and <b>MongoDB</b> intalled to your system. <br>
 <b>You can download the software from the links bellow:</b><br>
@@ -30,7 +30,7 @@ After installation finish:
 - Be sure that the direcory `C:\Program Files\MongoDB\Server\<version>\bin` was successfully created.
 - Check your Node.js version with `node --version` in you command line. The version should appear like `v14.17.0`
 
-2. <b>Execution</b>
+#### 2. <b>Execution</b>
 - Navigate to our project root directory `/edoatap` and type the following command in your commnad line:
 ```
 npm run dev
@@ -40,33 +40,34 @@ and you are ready, now wait and the script will take care of all packages depend
 
 ### B. Docker Execution
 
-1. <b>Dependencies installation [Linux OS]</b>:
+#### 1. <b>Dependencies installation [Linux OS]</b>:
 
-- Open a terminal window and update the local repository with:
+- Open a terminal window and update the local repository with:<br>
 ```sudo apt update```<br>
 
-- Before installing the software, make sure you remove any old Docker packages on your Ubuntu by running the command:
+- Before installing the software, make sure you remove any old Docker packages on your Ubuntu by running the command:<br>
   ```sudo apt-get remove docker docker-engine docker.io```
 
-- Now let’s install Docker on Ubuntu. Run the following command in the terminal window:
-  ```sudo apt install docker.io```  
+- Now let’s install Docker on Ubuntu. Run the following command in the terminal window:<br>
+  ```sudo apt install docker.io```  <br>
 Type `y` and hit `Enter` to confirm the installation. Once the install is completed, the output notifies you Docker has been installed.
 
-- To verify the installation check the Docker version:
+- To verify the installation check the Docker version:<br>
   ```docker –version```
 
-	The output displays the Docker version. Should look like this: `Docker version 20.10.12, build e91ed57`
+	The output displays the Docker version. Should look like this:<br>
+  `Docker version 20.10.12, build e91ed57`
 
-2. <b>Starting Docker Service</b>:
+#### 2. <b>Starting Docker Service</b>:
 
-- Start the Docker service by running:
+- Start the Docker service by running:<br>
   ```sudo systemctl start docker```
 
-- Then, enable it to run at startup:
+- Then, enable it to run at startup:<br>
   ```sudo systemctl enable docker```
 
-- To check the status of the service, run:
-  ```sudo systemctl status docker```
+- To check the status of the service, run:<br>
+  ```sudo systemctl status docker```<br>
   The output should verify that Docker is up and running. 
 
 #### React Application Structure [Front-End]:
