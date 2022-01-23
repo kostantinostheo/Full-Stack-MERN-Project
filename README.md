@@ -16,6 +16,7 @@ Project Repository: <br>
 - Database: <b>MongoDB</b>
 - Deploy: <b>Docker</b>
 
+---
 
 ### A. Local Execution (Recommended)
 
@@ -37,6 +38,7 @@ npm run dev
  ```
 and you are ready, now wait and the script will take care of all packages dependencies and it'll make sure to work.
 
+--- 
 
 ### B. Docker Execution
 
@@ -69,6 +71,8 @@ Type `y` and hit `Enter` to confirm the installation. Once the install is comple
 - To check the status of the service, run:<br>
   ```sudo systemctl status docker```<br>
   The output should verify that Docker is up and running. 
+
+--- 
 
 #### React Application Structure [Front-End]:
 
